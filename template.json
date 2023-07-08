@@ -1,7 +1,8 @@
 {
     "Actor": {
         "types": [
-            "character"
+            "character",
+            "obstacle"
         ],
         "templates": {
             "PJ": {
@@ -85,6 +86,11 @@
         "character": {
             "templates": [
                 "PJ"
+            ]
+        },
+        "obstacle": {
+            "templates": [
+                "opponent"
             ]
         }
     },
