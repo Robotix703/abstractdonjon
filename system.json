@@ -5,9 +5,5 @@
   "version": "1.0.0",
   "url": "https://github.com/Robotix703/abstractdonjon",
   "manifest": "https://raw.githubusercontent.com/Robotix703/abstractdonjon/main/system.json",
-  "download": "https://raw.githubusercontent.com/Robotix703/abstractdonjon/main/abstractdonjon.zip",
-  "compatibility": {
-    "minimum": "10",
-    "verified": "11"
-  }
+  "download": "https://raw.githubusercontent.com/Robotix703/abstractdonjon/main/abstractdonjon.zip"
 }
