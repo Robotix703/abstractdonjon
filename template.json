@@ -70,6 +70,16 @@
                         "public": ""
                     }
                 }
+            },
+            "opponent": {
+                "dice": {
+                    "values": [],
+                    "action": {
+                        "roll": ""
+                    }
+                },
+                "resistance": [],
+                "weakness": []
             }
         },
         "character": {
