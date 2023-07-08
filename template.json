@@ -1,132 +1,57 @@
 {
     "Actor": {
-        "types": [
-            "character",
-            "obstacle",
-            "challenge",
-            "monster",
-            "boss"
-        ],
-        "templates": {
-            "PJ": {
-                "abilities": {
-                    "str": {
-                        "values": [],
-                        "action": {
-                            "add": "",
-                            "roll": ""
-                        }
-                    },
-                    "dex": {
-                        "values": [],
-                        "action": {
-                            "add": "",
-                            "roll": ""
-                        }
-                    },
-                    "int": {
-                        "values": [],
-                        "action": {
-                            "add": "",
-                            "roll": ""
-                        }
-                    },
-                    "wis": {
-                        "values": [],
-                        "action": {
-                            "add": "",
-                            "roll": ""
-                        }
-                    },
-                    "bonus": {
-                        "values": [],
-                        "action": {
-                            "roll": "",
-                            "use": ""
-                        }
-                    }
-                },
-                "traits": [
-                    {
-                        "name": "",
-                        "value": 1
-                    }
-                ],
-                "treasure": [
-                    {
-                        "name": "",
-                        "value": 1
-                    }
-                ],
-                "attributes": {
-                    "level": {
-                        "value": 1,
-                        "min": 1
-                    },
-                    "xp": {
-                        "value": 1,
-                        "min": 1
-                    }
-                },
-                "details": {
-                    "biography": {
-                        "value": "",
-                        "public": ""
-                    }
-                }
-            },
-            "opponent": {
-                "dice": {
-                    "values": [],
-                    "action": {
-                        "roll": ""
-                    }
-                },
-                "resistance": [],
-                "weakness": []
-            }
+      "types": ["hero", "pawn", "villain"],
+      "templates": {
+        "background": {
+          "biography": "",
+          "hairColor": "blue"
         },
-        "character": {
-            "templates": [
-                "PJ"
-            ]
-        },
-        "obstacle": {
-            "templates": [
-                "opponent"
-            ]
-        },
-        "challenge": {
-            "templates": [
-                "opponent"
-            ]
-        },
-        "monster": {
-            "templates": [
-                "opponent"
-            ]
-        },
-        "boss": {
-            "templates": [
-                "opponent"
-            ]
+        "resources": {
+          "health": {
+            "min": 0,
+            "value": 10,
+            "max": 10
+          },
+          "power": {
+            "min": 0,
+            "value": 1,
+            "max": 3
+          }
         }
+      },
+      "hero": {
+        "templates": ["background", "resources"],
+        "goodness": {
+          "value": 5,
+          "max": 10
+        }
+      },
+      "pawn": {
+        "templates": ["resources"]
+      },
+      "villain": {
+        "templates": ["background", "resources"],
+        "wickedness": {
+          "value": 5,
+          "max": 100
+        }
+      }
     },
     "Item": {
-        "types": [
-            "weapon"
-        ],
-        "templates": {
-            "rarity": {
-                "rarity": "Common",
-                "price": 20
-            }
-        },
-        "weapon": {
-            "templates": [
-                "rarity"
-            ],
-            "damage": 5
+      "types": ["weapon", "spell"],
+      "templates": {
+        "rarity": {
+          "rarity": "Common",
+          "price": 20
         }
+      },
+      "weapon": {
+        "templates": ["rarity"],
+        "damage": 5
+      },
+      "spell": {
+        "templates": ["rarity"],
+        "cost": 2
+      }
     }
-}
+    }
