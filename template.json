@@ -2,7 +2,10 @@
     "Actor": {
         "types": [
             "character",
-            "obstacle"
+            "obstacle",
+            "challenge",
+            "monster",
+            "boss"
         ],
         "templates": {
             "PJ": {
@@ -89,6 +92,21 @@
             ]
         },
         "obstacle": {
+            "templates": [
+                "opponent"
+            ]
+        },
+        "challenge": {
+            "templates": [
+                "opponent"
+            ]
+        },
+        "monster": {
+            "templates": [
+                "opponent"
+            ]
+        },
+        "boss": {
             "templates": [
                 "opponent"
             ]
