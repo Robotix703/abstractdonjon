@@ -1,0 +1,18 @@
+{
+  "name": "abstractdonjon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "gulp-zip": "^5.1.0",
+    "gulp": "^4.0.2"
+  }
+}
