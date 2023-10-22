@@ -1,18 +1,17 @@
 {
   "name": "abstractdonjon",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Abstract Donjon System for FoundryVTT",
+  "main": "gulpfile.js",
   "scripts": {
     "build": "gulp build"
   },
   "author": "",
-  "license": "ISC",
+  "license": "GNU",
   "dependencies": {
-    
-  },
-  "devDependencies": {
-    "gulp-zip": "^5.1.0",
-    "gulp": "^4.0.2"
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-less": "^4.0.1",
+    "gulp-zip": "^5.1.0"
   }
 }
