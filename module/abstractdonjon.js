@@ -28,7 +28,7 @@ Hooks.once("init", async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "2d10 + @characteristics.dexterite.modifier + @characteristics.perception.modifier",
+    formula: "2d10",
     decimals: 2
   };
 
@@ -45,8 +45,8 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("abstractdonjon", SimpleActorSheet, { makeDefault: true });
-  Actors.registerSheet("abstractdonjon", SimpleNPCSheet, { types: ["npc"], makeDefault: true });
+  Actors.registerSheet("abstractdonjon", SimpleActorSheet, { types: ["character"], label: "Basic player Sheet", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", SimpleNPCSheet, { types: ["npc"], label: "NPC Sheet", makeDefault: true });
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("abstractdonjon", SimpleItemSheet, { makeDefault: true });
@@ -105,40 +105,6 @@ Hooks.once("init", async function() {
  * Macrobar hook.
  */
 Hooks.on("hotbarDrop", (bar, data, slot) => createstargatecoalitionMacro(data, slot));
-
-/**
- * Adds the actor template context menu.
- */
-Hooks.on("getActorDirectoryEntryContext", (html, options) => {
-
-  // Define an actor as a template.
-  options.push({
-    name: game.i18n.localize("SIMPLE.DefineTemplate"),
-    icon: '<i class="fas fa-stamp"></i>',
-    condition: li => {
-      const actor = game.actors.get(li.data("documentId"));
-      return !actor.isTemplate;
-    },
-    callback: li => {
-      const actor = game.actors.get(li.data("documentId"));
-      actor.setFlag("abstractdonjon", "isTemplate", true);
-    }
-  });
-
-  // Undefine an actor as a template.
-  options.push({
-    name: game.i18n.localize("SIMPLE.UnsetTemplate"),
-    icon: '<i class="fas fa-times"></i>',
-    condition: li => {
-      const actor = game.actors.get(li.data("documentId"));
-      return actor.isTemplate;
-    },
-    callback: li => {
-      const actor = game.actors.get(li.data("documentId"));
-      actor.setFlag("abstractdonjon", "isTemplate", false);
-    }
-  });
-});
 
 /**
  * Adds the item template context menu.

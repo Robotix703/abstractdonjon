@@ -2,7 +2,7 @@
 	"id": "abstractdonjon",
 	"title": "Abstract Donjon System",
 	"description": "Abstract Donjon System",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"compatibility":{
 		"minimum": 10,
 		"verified": 10,
