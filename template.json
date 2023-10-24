@@ -1,8 +1,23 @@
 {
 	"Actor": {
-	  "types": ["character"],
+	  "types": ["character", "npc"],
 	  "htmlFields": ["biographie"],
 	  "character": {
+		"name": "",
+		"level": 0,
+		"biographie": "",
+		"xp": 0,
+		"characteristics": {
+			"force": [],
+			"dexterite": [],
+			"sagesse": [],
+			"intelligence": []
+		},
+		"skills": {
+			
+		}
+	  },
+	  "npc": {
 		"name": "",
 		"level": 0,
 		"biographie": "",

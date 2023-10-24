@@ -1,0 +1,91 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <!--Portrait-->
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100"/>
+
+        <div class="header-fields">
+            <!--name-->
+            <h1 class="charname">
+                <input name="system.name" type="text" value="{{systemData.name}}" placeholder="Nom"/>
+            </h1>
+
+            <div class="resource">
+                <!--XP-->
+                <div class="ressource-element" style="width: 100px;">
+                    <label for="system.xp" class="resource-label">XP</label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input type="number" name="system.xp" value="{{systemData.xp}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="attributes">Caractéristiques</a>
+        <a class="item" data-tab="skills">Compétences</a>
+        <a class="item" data-tab="items">Objets</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab description" data-group="primary" data-tab="description">
+            <!--Biographie-->
+            <div >
+                <h1>Biographie</h1>
+                <div class="long-texte">
+                    {{editor biographyHTML target="system.biographie" button=true editable=editable engine="prosemirror"}}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            
+        </div>
+
+        {{!-- Skills Tab --}}
+        <div class="tab skills" data-group="primary" data-tab="skills">
+            
+        </div>
+
+        {{!-- Owned Items Tab --}}
+        <div class="tab items" data-group="primary" data-tab="items">
+            <!--Equipment-->
+            <h1>Equipement</h1>
+            <ol class="item-list">
+                {{#each data.items as |item id|}}
+                <div>
+                    {{#if item.system.objectType.isEquipment}}
+                    <li class="item flexrow" data-item-id="{{item._id}}">
+                        <!--Image-->
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+
+                        <!--Title-->
+                        <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit">
+                            <h4 class="item-name">{{item.name}}</h4>
+                        </a>
+
+                        <!--Description-->
+                        <p>
+                            {{item.system.description}}
+                        </p>
+
+                        <!--Buttons-->
+                        <div class="item-controls">
+                            <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </ol>
+        </div>
+    </section>
+</form>

@@ -8,6 +8,7 @@ import { SimpleActor } from "./actor.js";
 import { SimpleItem } from "./item.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
+import { SimpleNPCSheet } from "./npc-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import { createstargatecoalitionMacro } from "./macro.js";
 import { SimpleToken, SimpleTokenDocument } from "./token.js";
@@ -45,6 +46,8 @@ Hooks.once("init", async function() {
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("abstractdonjon", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("abstractdonjon", SimpleNPCSheet, { types: ["npc"], makeDefault: true });
+
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("abstractdonjon", SimpleItemSheet, { makeDefault: true });
 
