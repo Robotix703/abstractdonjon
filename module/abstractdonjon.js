@@ -20,7 +20,7 @@ import { SimpleToken, SimpleTokenDocument } from "./token.js";
  * Init hook.
  */
 Hooks.once("init", async function() {
-  console.log(`Initializing Simple stargatecoalition System`);
+  console.log(`Initializing Simple abstractdonjon System`);
 
   /**
    * Set an initiative formula for the system. This will be updated later.
@@ -31,7 +31,7 @@ Hooks.once("init", async function() {
     decimals: 2
   };
 
-  game.stargatecoalition = {
+  game.abstractdonjon = {
     SimpleActor,
     createstargatecoalitionMacro
   };
@@ -44,12 +44,12 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("stargatecoalition", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("abstractdonjon", SimpleActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("stargatecoalition", SimpleItemSheet, { makeDefault: true });
+  Items.registerSheet("abstractdonjon", SimpleItemSheet, { makeDefault: true });
 
   // Register system settings
-  game.settings.register("stargatecoalition", "macroShorthand", {
+  game.settings.register("abstractdonjon", "macroShorthand", {
     name: "SETTINGS.SimpleMacroShorthandN",
     hint: "SETTINGS.SimpleMacroShorthandL",
     scope: "world",
@@ -59,7 +59,7 @@ Hooks.once("init", async function() {
   });
 
   // Register initiative setting.
-  game.settings.register("stargatecoalition", "initFormula", {
+  game.settings.register("abstractdonjon", "initFormula", {
     name: "SETTINGS.SimpleInitFormulaN",
     hint: "SETTINGS.SimpleInitFormulaL",
     scope: "world",
@@ -70,7 +70,7 @@ Hooks.once("init", async function() {
   });
 
   // Retrieve and assign the initiative formula setting.
-  const initFormula = game.settings.get("stargatecoalition", "initFormula");
+  const initFormula = game.settings.get("abstractdonjon", "initFormula");
   _simpleUpdateInit(initFormula);
 
   /**
@@ -118,7 +118,7 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const actor = game.actors.get(li.data("documentId"));
-      actor.setFlag("stargatecoalition", "isTemplate", true);
+      actor.setFlag("abstractdonjon", "isTemplate", true);
     }
   });
 
@@ -132,7 +132,7 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const actor = game.actors.get(li.data("documentId"));
-      actor.setFlag("stargatecoalition", "isTemplate", false);
+      actor.setFlag("abstractdonjon", "isTemplate", false);
     }
   });
 });
@@ -152,7 +152,7 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const item = game.items.get(li.data("documentId"));
-      item.setFlag("stargatecoalition", "isTemplate", true);
+      item.setFlag("abstractdonjon", "isTemplate", true);
     }
   });
 
@@ -166,7 +166,7 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
     },
     callback: li => {
       const item = game.items.get(li.data("documentId"));
-      item.setFlag("stargatecoalition", "isTemplate", false);
+      item.setFlag("abstractdonjon", "isTemplate", false);
     }
   });
 });
