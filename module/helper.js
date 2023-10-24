@@ -171,7 +171,7 @@ export class EntitySheetHelper {
     event.preventDefault();
     const button = event.currentTarget;
     const chatLabel = button?.getAttribute("data-label");
-    const shorthand = game.settings.get("stargatecoalition", "macroShorthand");
+    const shorthand = game.settings.get("abstractdonjon", "macroShorthand");
 
     // Use the actor for rollData so that formulas are always in reference to the parent actor.
     const rollData = this.actor.getRollData();
@@ -550,7 +550,7 @@ export class EntitySheetHelper {
 
     // Identify the template Actor types
     const collection = game.collections.get(this.documentName);
-    const templates = collection.filter(a => a.getFlag("stargatecoalition", "isTemplate"));
+    const templates = collection.filter(a => a.getFlag("abstractdonjon", "isTemplate"));
     const defaultType = this.TYPES.filter(t => t !== CONST.BASE_DOCUMENT_TYPE)[0] ?? CONST.BASE_DOCUMENT_TYPE;
     const types = {
       [defaultType]: game.i18n.localize("SIMPLE.NoTemplate")
@@ -588,7 +588,7 @@ export class EntitySheetHelper {
         if ( template ) {
           createData = foundry.utils.mergeObject(template.toObject(), createData);
           createData.type = template.type;
-          delete createData.flags.stargatecoalition.isTemplate;
+          delete createData.flags.abstractdonjon.isTemplate;
         }
 
         // Merge provided override data

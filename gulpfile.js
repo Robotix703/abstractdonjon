@@ -13,7 +13,7 @@ function copyForZip() {
 }
 
 function compileLESS() {
-  	return gulp.src("styles/stargatecoalition.less")
+  	return gulp.src("styles/abstractdonjon.less")
 		.pipe(less())
 		.pipe(gulp.dest("./styles/"))
 }

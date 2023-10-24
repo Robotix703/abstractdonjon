@@ -10,8 +10,8 @@ export class SimpleActorSheet extends ActorSheet {
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["stargatecoalition", "sheet", "actor"],
-      template: "systems/stargatecoalition/templates/actor-sheet.html",
+      classes: ["abstractdonjon", "sheet", "actor"],
+      template: "systems/abstractdonjon/templates/actor-sheet.html",
       width: 700,
       height: 750,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
@@ -25,7 +25,7 @@ export class SimpleActorSheet extends ActorSheet {
   /** @inheritdoc */
   async getData(options) {
     const context = await super.getData(options);
-    context.shorthand = !!game.settings.get("stargatecoalition", "macroShorthand");
+    context.shorthand = !!game.settings.get("abstractdonjon", "macroShorthand");
     context.systemData = context.data.system;
     context.dtypes = ATTRIBUTE_TYPES;
     context.biographyHTML = await TextEditor.enrichHTML(context.systemData.biographie, {

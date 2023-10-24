@@ -2,17 +2,17 @@
 	"id": "abstractdonjon",
 	"title": "Abstract Donjon System",
 	"description": "Abstract Donjon System",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"compatibility":{
 		"minimum": 10,
 		"verified": 10,
 		"maximum": 10
 	},
   	"esmodules": [
-		"module/stargatecoalition.js"
+		"module/abstractdonjon.js"
 	],
 	"styles": [
-		"styles/stargatecoalition.css"
+		"styles/abstractdonjon.css"
 	],
 	"packs": [],
 	"languages": [
