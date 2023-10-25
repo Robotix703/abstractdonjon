@@ -45,7 +45,7 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("abstractdonjon", SimpleActorSheet, { types: ["character"], label: "Basic player Sheet", makeDefault: true });
+  //Actors.registerSheet("abstractdonjon", SimpleActorSheet, { types: ["character"], label: "Basic Player Sheet", makeDefault: true });
   Actors.registerSheet("abstractdonjon", SimpleNPCSheet, { types: ["npc"], label: "NPC Sheet", makeDefault: true });
 
   Items.unregisterSheet("core", ItemSheet);
