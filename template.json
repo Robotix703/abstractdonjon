@@ -1,8 +1,8 @@
 {
 	"Actor": {
-	  "types": ["character", "npc"],
+	  "types": ["Joueur", "PNJ"],
 	  "htmlFields": ["biographie"],
-	  "character": {
+	  "Joueur": {
 		"name": "",
 		"level": 0,
 		"biographie": "",
@@ -17,7 +17,7 @@
 			
 		}
 	  },
-	  "npc": {
+	  "PNJ": {
 		"name": "",
 		"level": 0,
 		"biographie": "",
@@ -34,7 +34,7 @@
 	  }
 	},
 	"Item": {
-	  "types": ["item"],
+	  "types": ["Equipement"],
 	  "htmlFields": ["description"],
 	  "item": {
 		"name": "",

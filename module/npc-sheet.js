@@ -10,7 +10,7 @@ export class SimpleNPCSheet extends ActorSheet {
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["abstractdonjon", "sheet", "actor", "npc"],
+      classes: ["abstractdonjon", "sheet", "actor", "PNJ"],
       template: "systems/abstractdonjon/templates/npc-sheet.html",
       width: 700,
       height: 750,

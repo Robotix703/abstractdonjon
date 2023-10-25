@@ -10,7 +10,7 @@ export class SimpleActorSheet extends ActorSheet {
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["abstractdonjon", "sheet", "actor"],
+      classes: ["abstractdonjon", "sheet", "actor", "Joueur"],
       template: "systems/abstractdonjon/templates/actor-sheet.html",
       width: 700,
       height: 750,

@@ -10,7 +10,7 @@ export class SimpleItemSheet extends ItemSheet {
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["abstractdonjon", "sheet", "item"],
+      classes: ["abstractdonjon", "sheet", "item", "Equipement"],
       template: "systems/abstractdonjon/templates/item-sheet.html",
       width: 520,
       height: 480,

@@ -13,21 +13,4 @@ export class SimpleItem extends Item {
     this.system.attributes = this.system.attributes || {};
     EntitySheetHelper.clampResourceValues(this.system.attributes);
   }
-
-  /* -------------------------------------------- */
-
-  /** @override */
-  static async createDialog(data={}, options={}) {
-    return EntitySheetHelper.createDialog.call(this, data, options);
-  }
-
-  /* -------------------------------------------- */
-
-  /**
-   * Is this Item used as a template for other Items?
-   * @type {boolean}
-   */
-  get isTemplate() {
-    return !!this.getFlag("abstractdonjon", "isTemplate");
-  }
 }
