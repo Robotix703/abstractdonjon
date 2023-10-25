@@ -16,11 +16,6 @@ export class SimpleActor extends Actor {
 
   /* -------------------------------------------- */
 
-  /** @override */
-  static async createDialog(data={}, options={}) {
-    return EntitySheetHelper.createDialog.call(this, data, options);
-  }
-
   /* -------------------------------------------- */
 
   /* -------------------------------------------- */
