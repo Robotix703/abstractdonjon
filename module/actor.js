@@ -23,14 +23,6 @@ export class SimpleActor extends Actor {
 
   /* -------------------------------------------- */
 
-  /**
-   * Is this Actor used as a template for other Actors?
-   * @type {boolean}
-   */
-  get isTemplate() {
-    return !!this.getFlag("abstractdonjon", "isTemplate");
-  }
-
   /* -------------------------------------------- */
   /*  Roll Data Preparation                       */
   /* -------------------------------------------- */

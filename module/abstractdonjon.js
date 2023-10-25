@@ -9,7 +9,6 @@ import { SimpleItem } from "./item.js";
 import { SimpleItemSheet } from "./item-sheet.js";
 import { SimpleActorSheet } from "./actor-sheet.js";
 import { SimpleNPCSheet } from "./npc-sheet.js";
-import { preloadHandlebarsTemplates } from "./templates.js";
 import { createstargatecoalitionMacro } from "./macro.js";
 import { SimpleToken, SimpleTokenDocument } from "./token.js";
 
@@ -96,9 +95,6 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper('slugify', function(value) {
     return value.slugify({strict: true});
   });
-
-  // Preload template partials
-  await preloadHandlebarsTemplates();
 });
 
 /**
