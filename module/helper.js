@@ -534,9 +534,6 @@ export class EntitySheetHelper {
     }, {_id: document.id, "system.groups": groups});
     return formData;
   }
-
-  /* -------------------------------------------- */
-
   /* -------------------------------------------- */
 
   /**
