@@ -49,7 +49,7 @@ export class SimpleActorSheet extends ActorSheet {
     // Item Controls
     html.find(".item-control").click(this._onItemControl.bind(this));
     html.find(".items .rollable").on("click", this._onAttackRoll.bind(this));
-    html.find(".items .equipped").on("click", this._onItemEquipped.bind(this));
+    html.find(".items .dice").on("change", this._onItemUpdate.bind(this));
   }
   /* -------------------------------------------- */
 
@@ -97,10 +97,9 @@ export class SimpleActorSheet extends ActorSheet {
     });
   }
 
-  _onItemEquipped(event) {
-    let button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const item = this.actor.items.get(li.data("itemId"));
+  _onItemUpdate(event) {
+    let input = $(event.currentTarget);
+    this.actor.items.getName(item.name).update({"system.armor.isEquip": input[0].value});
   }
 
   /* -------------------------------------------- */
