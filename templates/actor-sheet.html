@@ -62,7 +62,6 @@
             <ol class="item-list">
                 {{#each data.items as |item id|}}
                 <div>
-                    {{#if item.system.objectType.isEquipment}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <!--Image-->
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
@@ -77,12 +76,14 @@
                             {{item.system.description}}
                         </p>
 
+                        <!--Dice-->
+                        <input class="dice" type="number" name="item.dice" value="{{item.dice}}"/>
+
                         <!--Buttons-->
                         <div class="item-controls">
                             <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
-                    {{/if}}
                 </div>
                 {{/each}}
             </ol>
