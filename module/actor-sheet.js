@@ -99,7 +99,10 @@ export class SimpleActorSheet extends ActorSheet {
 
   _onItemUpdate(event) {
     let input = $(event.currentTarget);
-    this.actor.items.getName(item.name).update({"system.armor.isEquip": input[0].value});
+    const li = input.parents(".item");
+    const item = this.actor.items.get(li.data("itemId"));
+
+    this.actor.items.getName(item.name).update({"system.dice": input[0].value});
   }
 
   /* -------------------------------------------- */
