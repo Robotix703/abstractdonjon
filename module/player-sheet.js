@@ -90,11 +90,9 @@ export class PlayerSheet extends ActorSheet {
     const item = this.actor.items.get(li.data("itemId"));
 
     let r = new Roll("1d6", this.actor.getRollData());
-
     await r.evaluate();
 
-    console.log(r.result);
-
+    this.actor.items.getName(item.name).update({"system.dice": r.total});
     return;
   }
 
