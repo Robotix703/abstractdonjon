@@ -68,9 +68,6 @@ export class PlayerSheet extends ActorSheet {
 
     // Handle different actions
     switch ( button.dataset.action ) {
-      case "create":
-        const cls = getDocumentClass("Item");
-        return cls.create({name: game.i18n.localize("SIMPLE.ItemNew"), type: "item"}, {parent: this.actor});
       case "edit":
         return item.sheet.render(true);
       case "delete":
@@ -93,7 +90,11 @@ export class PlayerSheet extends ActorSheet {
     await r.evaluate();
 
     this.actor.items.getName(item.name).update({"system.dice": r.total});
-    return;
+    return r.toMessage({
+      user: game.user.id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${item.name}</h2>`
+    })
   }
 
   _onItemUpdate(event) {

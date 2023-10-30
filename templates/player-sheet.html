@@ -19,6 +19,14 @@
                         <input type="number" name="system.xp" value="{{systemData.xp}}"/>
                     </div>
                 </div>
+
+                <!--Level-->
+                <div class="ressource-element" style="width: 100px;">
+                    <label for="system.level" class="resource-label">Niveau</label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input type="number" name="system.level" value="{{systemData.level}}"/>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -52,13 +60,6 @@
 
         {{!-- Skills Tab --}}
         <div class="tab skills" data-group="primary" data-tab="skills">
-            
-        </div>
-
-        {{!-- Owned Items Tab --}}
-        <div class="tab items" data-group="primary" data-tab="items">
-            <!--Equipment-->
-            <h1>Equipement</h1>
             <ol class="item-list">
                 {{#each data.items as |item id|}}
                 <div>
@@ -78,7 +79,40 @@
 
                         <!--Dice-->
                         <input class="dice" type="number" name="item.dice" value="{{item.system.dice}}"/>
-                        <button class="rollable" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
+                        <button class="rollable" style="max-width: 30px; margin-left: 30px;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
+
+                        <!--Buttons-->
+                        <div class="item-controls">
+                            <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                </div>
+                {{/each}}
+            </ol>
+        </div>
+
+        {{!-- Owned Items Tab --}}
+        <div class="tab items" data-group="primary" data-tab="items">
+            <ol class="item-list">
+                {{#each data.items as |item id|}}
+                <div>
+                    <li class="item flexrow" data-item-id="{{item._id}}">
+                        <!--Image-->
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+
+                        <!--Title-->
+                        <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit">
+                            <h4 class="item-name">{{item.name}}</h4>
+                        </a>
+
+                        <!--Description-->
+                        <p>
+                            {{item.system.description}}
+                        </p>
+
+                        <!--Dice-->
+                        <input class="dice" type="number" name="item.dice" value="{{item.system.dice}}"/>
+                        <button class="rollable" style="max-width: 30px; margin-left: 30px;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
 
                         <!--Buttons-->
                         <div class="item-controls">
