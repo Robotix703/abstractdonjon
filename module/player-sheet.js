@@ -44,12 +44,14 @@ export class PlayerSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if ( !this.isEditable ) return;
 
-    // Attribute Management
-
-    // Item Controls
+    //Items
     html.find(".item-control").click(this._onItemControl.bind(this));
     html.find(".items .rollable").on("click", this._onDiceRoll.bind(this));
     html.find(".items .dice").on("change", this._onItemUpdate.bind(this));
+
+    //Skills
+    html.find(".skills .rollable").on("click", this._onDiceRoll.bind(this));
+    html.find(".skills .dice").on("change", this._onItemUpdate.bind(this));
   }
   /* -------------------------------------------- */
 
