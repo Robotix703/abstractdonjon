@@ -5,7 +5,7 @@
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
-export async function createAbstractdonjonMacro(data, slot) {
+export async function createabstractdonjonMacro(data, slot) {
   if ( !data.roll || !data.label ) return false;
   const command = `const roll = new Roll("${data.roll}", actor ? actor.getRollData() : {});
   roll.toMessage({speaker, flavor: "${data.label}"});`;

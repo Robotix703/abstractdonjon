@@ -12,7 +12,7 @@ import { ItemSheet } from "./item-sheet.js";
 import { PlayerSheet } from "./player-sheet.js";
 import { NPCSheet } from "./npc-sheet.js";
 
-import { createAbstractdonjonMacro } from "./macro.js";
+import { createabstractdonjonMacro } from "./macro.js";
 import { SimpleToken, SimpleTokenDocument } from "./token.js";
 
 /* -------------------------------------------- */
@@ -36,7 +36,7 @@ Hooks.once("init", async function() {
 
   game.abstractdonjon = {
     SimpleActor,
-    createAbstractdonjonMacro
+    createabstractdonjonMacro
   };
 
   // Define custom Document classes
@@ -69,7 +69,7 @@ Hooks.once("init", async function() {
     hint: "SETTINGS.SimpleInitFormulaL",
     scope: "world",
     type: String,
-    default: "2d10 + @characteristics.dexterite.modifier + @characteristics.perception.modifier",
+    default: "2d10",
     config: true,
     onChange: formula => _simpleUpdateInit(formula, true)
   });
@@ -103,4 +103,4 @@ Hooks.once("init", async function() {
 /**
  * Macrobar hook.
  */
-Hooks.on("hotbarDrop", (bar, data, slot) => createAbstractdonjonMacro(data, slot));
+Hooks.on("hotbarDrop", (bar, data, slot) => createabstractdonjonMacro(data, slot));
