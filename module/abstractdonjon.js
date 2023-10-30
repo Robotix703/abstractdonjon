@@ -8,6 +8,7 @@ import { SimpleActor } from "./actor.js";
 import { SimpleItem } from "./item.js";
 
 import { SimpleItemSheet } from "./item-sheet.js";
+import { SkillSheet } from "./skill-sheet.js";
 
 import { PlayerSheet } from "./player-sheet.js";
 import { NPCSheet } from "./npc-sheet.js";
@@ -52,6 +53,7 @@ Hooks.once("init", async function() {
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("abstractdonjon", SimpleItemSheet, { types: ["Equipement"], label: "Equipement", makeDefault: true });
+  Items.registerSheet("abstractdonjon", SkillSheet, { types: ["Skill"], label: "Trait", makeDefault: true });
 
   // Register system settings
   game.settings.register("abstractdonjon", "macroShorthand", {

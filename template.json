@@ -34,12 +34,19 @@
 	  }
 	},
 	"Item": {
-	  "types": ["Equipement"],
+	  "types": ["Equipement", "Skill"],
 	  "htmlFields": ["description"],
 	  "Equipement": {
 		"name": "",
 		"description": "",
-		"dice": 0
+		"dice": 0,
+		"isEquipment": true
+	  },
+	  "Skill": {
+		"name": "",
+		"description": "",
+		"dice": 0,
+		"isSkill": true
 	  }
 	}
 }
