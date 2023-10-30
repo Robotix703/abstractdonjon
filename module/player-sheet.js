@@ -84,17 +84,18 @@ export class PlayerSheet extends ActorSheet {
    * Listen for roll buttons on items.
    * @param {MouseEvent} event    The originating left click event
    */
-  _onDiceRoll(event) {
+  async _onDiceRoll(event) {
     let button = $(event.currentTarget);
     const li = button.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
 
     let r = new Roll("1d6", this.actor.getRollData());
-    return r.toMessage({
-      user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
-    });
+
+    await r.evaluate();
+
+    console.log(r.result);
+
+    return;
   }
 
   _onItemUpdate(event) {
