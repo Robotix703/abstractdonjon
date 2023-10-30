@@ -6,10 +6,13 @@
 // Import Modules
 import { SimpleActor } from "./actor.js";
 import { SimpleItem } from "./item.js";
-import { SimpleItemSheet } from "./item-sheet.js";
-import { SimpleActorSheet } from "./actor-sheet.js";
-import { SimpleNPCSheet } from "./npc-sheet.js";
-import { createstargatecoalitionMacro } from "./macro.js";
+
+import { ItemSheet } from "./item-sheet.js";
+
+import { PlayerSheet } from "./player-sheet.js";
+import { NPCSheet } from "./npc-sheet.js";
+
+import { createAbstractdonjonMacro } from "./macro.js";
 import { SimpleToken, SimpleTokenDocument } from "./token.js";
 
 /* -------------------------------------------- */
@@ -27,13 +30,13 @@ Hooks.once("init", async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "2d10",
+    formula: "1",
     decimals: 2
   };
 
   game.abstractdonjon = {
     SimpleActor,
-    createstargatecoalitionMacro
+    createAbstractdonjonMacro
   };
 
   // Define custom Document classes
@@ -44,11 +47,11 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("abstractdonjon", SimpleActorSheet, { types: ["Joueur"], label: "Joueur", makeDefault: true });
-  Actors.registerSheet("abstractdonjon", SimpleNPCSheet, { types: ["PNJ"], label: "PNJ", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", PlayerSheet, { types: ["Joueur"], label: "Joueur", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", NPCSheet, { types: ["PNJ"], label: "PNJ", makeDefault: true });
 
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("abstractdonjon", SimpleItemSheet, { types: ["Equipement"], label: "Equipement", makeDefault: true });
+  Items.registerSheet("abstractdonjon", ItemSheet, { types: ["Equipement"], label: "Equipement", makeDefault: true });
 
   // Register system settings
   game.settings.register("abstractdonjon", "macroShorthand", {
@@ -100,4 +103,4 @@ Hooks.once("init", async function() {
 /**
  * Macrobar hook.
  */
-Hooks.on("hotbarDrop", (bar, data, slot) => createstargatecoalitionMacro(data, slot));
+Hooks.on("hotbarDrop", (bar, data, slot) => createAbstractdonjonMacro(data, slot));

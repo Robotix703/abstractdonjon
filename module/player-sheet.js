@@ -5,13 +5,13 @@ import {ATTRIBUTE_TYPES} from "./constants.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class SimpleActorSheet extends ActorSheet {
+export class PlayerSheet extends ActorSheet {
 
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["abstractdonjon", "sheet", "actor", "Joueur"],
-      template: "systems/abstractdonjon/templates/actor-sheet.html",
+      template: "systems/abstractdonjon/templates/player-sheet.html",
       width: 700,
       height: 750,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
@@ -48,7 +48,7 @@ export class SimpleActorSheet extends ActorSheet {
 
     // Item Controls
     html.find(".item-control").click(this._onItemControl.bind(this));
-    html.find(".items .rollable").on("click", this._onAttackRoll.bind(this));
+    html.find(".items .rollable").on("click", this._onDiceRoll.bind(this));
     html.find(".items .dice").on("change", this._onItemUpdate.bind(this));
   }
   /* -------------------------------------------- */
@@ -84,16 +84,16 @@ export class SimpleActorSheet extends ActorSheet {
    * Listen for roll buttons on items.
    * @param {MouseEvent} event    The originating left click event
    */
-  _onAttackRoll(event) {
+  _onDiceRoll(event) {
     let button = $(event.currentTarget);
     const li = button.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    const damage = item.system.weapon.damage + (item.system.weapon.isImproved ? 1 : 0);
-    let r = new Roll(button[0].getAttribute('data-roll'), this.actor.getRollData());
+
+    let r = new Roll("1d6", this.actor.getRollData());
     return r.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3><h3>${damage}</h3>`
+      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
     });
   }
 
