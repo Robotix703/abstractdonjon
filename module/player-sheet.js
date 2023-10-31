@@ -56,6 +56,7 @@ export class PlayerSheet extends ActorSheet {
     //Attributes
     html.find(".attributes .add-dice").on("click", this._onAddDice.bind(this));
     html.find(".attributes .remove-dice").on("click", this._onRemoveDice.bind(this));
+    html.find(".attributes .roll-dice").on("click", this._onAttributeDiceRoll.bind(this));
   }
   /* -------------------------------------------- */
 
@@ -83,11 +84,23 @@ export class PlayerSheet extends ActorSheet {
 
   /* -------------------------------------------- */
 
-  /**
-   * Listen for roll buttons on items.
-   * @param {MouseEvent} event    The originating left click event
-   */
   async _onDiceRoll(event) {
+    let button = $(event.currentTarget);
+    const li = button.parents(".item");
+    const item = this.actor.items.get(li.data("itemId"));
+
+    let r = new Roll("1d6", this.actor.getRollData());
+    await r.evaluate();
+
+    this.actor.items.getName(item.name).update({"system.dice": r.total});
+    return r.toMessage({
+      user: game.user.id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${item.name}</h2>`
+    })
+  }
+
+  async _onAttributeDiceRoll(event) {
     let button = $(event.currentTarget);
     const li = button.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
@@ -118,7 +131,9 @@ export class PlayerSheet extends ActorSheet {
   }
 
   _onRemoveDice(event) {
-    let input = $(event.currentTarget);
+    let dices = this.actor.system.characteristics.force;
+    dices.splice(1);
+    this.actor.update({"system.characteristics.force": dices});
   }
   /* -------------------------------------------- */
 

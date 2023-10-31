@@ -61,12 +61,13 @@
                 <label>Trancher</label>
                 <div class="dice-pool" style="display: flex;">
                     {{#each data.system.characteristics.force}}
-                        <input class="dice" type="number" value="{{this}}"/>
+                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
                     {{/each}}
                 </div>
                 <div class="col" style="display: flex;">
                     <a class="button add-dice" style="max-width: 20px;"><i class="fas fa-plus"></i></a>
                     <a class="button remove-dice" style="max-width: 20px;"><i class="fas fa-trash"></i></a>
+                    <a class="button roll-dice" style="max-width: 20px;"><i class="fas fa-dice-d20"></i></a>
                 </div>
             </div>
 
