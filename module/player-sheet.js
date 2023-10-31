@@ -102,13 +102,18 @@ export class PlayerSheet extends ActorSheet {
 
   async _onAttributeDiceRoll(event) {
     let button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const item = this.actor.items.get(li.data("itemId"));
 
-    let r = new Roll("1d6", this.actor.getRollData());
+    let rollFunction = "";
+    switch (button[0].getAttribute('data-roll')) {
+      case "force":
+        rollFunction = this.actor.system.characteristics.force.length + "d6";
+        break;
+    }
+
+    let r = new Roll(rollFunction, this.actor.getRollData());
     await r.evaluate();
 
-    this.actor.items.getName(item.name).update({"system.dice": r.total});
+    //this.actor.items.getName(item.name).update({"system.dice": r.total});
     return r.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -125,15 +130,23 @@ export class PlayerSheet extends ActorSheet {
   }
 
   _onAddDice(event) {
-    let dices = this.actor.system.characteristics.force;
-    dices.push(1);
-    this.actor.update({"system.characteristics.force": dices});
+    let button = $(event.currentTarget);
+
+    switch (button[0].getAttribute('data-roll')) {
+      case "force":
+        this.actor.update({"system.characteristics.force": this.actor.system.characteristics.force.push(1)});
+        break;
+    }
   }
 
   _onRemoveDice(event) {
-    let dices = this.actor.system.characteristics.force;
-    dices.splice(1);
-    this.actor.update({"system.characteristics.force": dices});
+    let button = $(event.currentTarget);
+
+    switch (button[0].getAttribute('data-roll')) {
+      case "force":
+        this.actor.update({"system.characteristics.force": this.actor.system.characteristics.force.splice(-1)});
+        break;
+    }
   }
   /* -------------------------------------------- */
 
