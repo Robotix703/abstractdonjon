@@ -103,14 +103,14 @@ export class PlayerSheet extends ActorSheet {
   async _onAttributeDiceRoll(event) {
     let button = $(event.currentTarget);
 
-    let rollFunction = "";
+    let amount;
     switch (button[0].getAttribute('data-roll')) {
       case "force":
-        rollFunction = this.actor.system.characteristics.force.length + "d6";
+        amount = this.actor.system.characteristics.force.length? this.actor.system.characteristics.force.length : 0;
         break;
     }
 
-    let r = new Roll(rollFunction, this.actor.getRollData());
+    let r = new Roll(amount + "d6", this.actor.getRollData());
     await r.evaluate();
 
     //this.actor.items.getName(item.name).update({"system.dice": r.total});
@@ -131,20 +131,48 @@ export class PlayerSheet extends ActorSheet {
 
   _onAddDice(event) {
     let button = $(event.currentTarget);
+    let dices = [];
 
     switch (button[0].getAttribute('data-roll')) {
       case "force":
-        this.actor.update({"system.characteristics.force": this.actor.system.characteristics.force.push(1)});
+        dices = this.actor.system.characteristics.force;
+        this.actor.update({"system.characteristics.force": dices.push(1)});
+        break;
+      case "dexterite":
+        dices = this.actor.system.characteristics.dexterite;
+        this.actor.update({"system.characteristics.dexterite": dices.push(1)});
+        break;
+      case "sagesse":
+        dices = this.actor.system.characteristics.sagesse;
+        this.actor.update({"system.characteristics.sagesse": dices.push(1)});
+        break;
+      case "intelligence":
+        dices = this.actor.system.characteristics.intelligence;
+        this.actor.update({"system.characteristics.intelligence": dices.push(1)});
         break;
     }
   }
 
   _onRemoveDice(event) {
     let button = $(event.currentTarget);
+    let dices = [];
 
     switch (button[0].getAttribute('data-roll')) {
       case "force":
-        this.actor.update({"system.characteristics.force": this.actor.system.characteristics.force.splice(-1)});
+        dices = this.actor.system.characteristics.force;
+        this.actor.update({"system.characteristics.force": dices.splice(-1)});
+        break;
+      case "dexterite":
+        dices = this.actor.system.characteristics.dexterite;
+        this.actor.update({"system.characteristics.dexterite": dices.splice(-1)});
+        break;
+      case "sagesse":
+        dices = this.actor.system.characteristics.sagesse;
+        this.actor.update({"system.characteristics.sagesse": dices.splice(-1)});
+        break;
+      case "intelligence":
+        dices = this.actor.system.characteristics.intelligence;
+        this.actor.update({"system.characteristics.intelligence": dices.splice(-1)});
         break;
     }
   }

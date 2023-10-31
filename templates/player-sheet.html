@@ -65,9 +65,9 @@
                     {{/each}}
                 </div>
                 <div class="col" style="display: flex;">
-                    <a class="button add-dice" style="max-width: 20px; margin: 10px;" data-roll="force"><i class="fas fa-plus"></i></a>
-                    <a class="button remove-dice" style="max-width: 20px; margin: 10px;" data-roll="force"><i class="fas fa-trash"></i></a>
-                    <a class="button roll-dice" style="max-width: 20px; margin: 10px;" data-roll="force"><i class="fas fa-dice-d20"></i></a>
+                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="force"><i class="fas fa-plus"></i></a>
+                    <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="force"><i class="fas fa-trash"></i></a>
+                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="force"><i class="fas fa-dice-d20"></i></a>
                 </div>
             </div>
 
@@ -75,18 +75,48 @@
             <div>
                 <h1>Dextérité</h1>
                 <label>Esquiver</label>
+                <div class="dice-pool" style="display: flex;">
+                    {{#each data.system.characteristics.dexterite}}
+                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                    {{/each}}
+                </div>
+                <div class="col" style="display: flex;">
+                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="dexterite"><i class="fas fa-plus"></i></a>
+                    <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="dexterite"><i class="fas fa-trash"></i></a>
+                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="dexterite"><i class="fas fa-dice-d20"></i></a>
+                </div>
             </div>
 
             <!--Wisdom-->
             <div>
                 <h1>Sagesse</h1>
                 <label>Sentir</label>
+                <div class="dice-pool" style="display: flex;">
+                    {{#each data.system.characteristics.sagesse}}
+                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                    {{/each}}
+                </div>
+                <div class="col" style="display: flex;">
+                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="sagesse"><i class="fas fa-plus"></i></a>
+                    <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="sagesse"><i class="fas fa-trash"></i></a>
+                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="sagesse"><i class="fas fa-dice-d20"></i></a>
+                </div>
             </div>
 
             <!--Intelligence-->
             <div>
                 <h1>Intelligence</h1>
                 <label>Convaincre</label>
+                <div class="dice-pool" style="display: flex;">
+                    {{#each data.system.characteristics.intelligence}}
+                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                    {{/each}}
+                </div>
+                <div class="col" style="display: flex;">
+                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="intelligence"><i class="fas fa-plus"></i></a>
+                    <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="intelligence"><i class="fas fa-trash"></i></a>
+                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="intelligence"><i class="fas fa-dice-d20"></i></a>
+                </div>
             </div>
 
             <!--Bonus-->
