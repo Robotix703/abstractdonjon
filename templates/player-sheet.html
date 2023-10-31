@@ -59,12 +59,12 @@
             <div>
                 <h1>Force</h1>
                 <label>Trancher</label>
-                <div class="dice-pool">
+                <div class="dice-pool" style="display: flex;">
                     {{#each data.system.characteristics.force}}
-                        <li>{{this}}</li>
+                        <input class="dice" type="number" value="{{this}}"/>
                     {{/each}}
                 </div>
-                <div class="col">
+                <div class="col" style="display: flex;">
                     <a class="button add-dice" style="max-width: 20px;"><i class="fas fa-plus"></i></a>
                     <a class="button remove-dice" style="max-width: 20px;"><i class="fas fa-trash"></i></a>
                 </div>
