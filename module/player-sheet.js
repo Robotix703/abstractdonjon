@@ -102,10 +102,12 @@ export class PlayerSheet extends ActorSheet {
 
   async _onAttributeDiceRoll(event) {
     let button = $(event.currentTarget);
+    let name = "";
 
     let amount;
     switch (button[0].getAttribute('data-roll')) {
       case "force":
+        name = "Force";
         amount = this.actor.system.characteristics.force.length? this.actor.system.characteristics.force.length : 0;
         break;
     }
@@ -117,7 +119,7 @@ export class PlayerSheet extends ActorSheet {
     return r.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item.name}</h2>`
+      flavor: `<h2>${name}</h2>`
     })
   }
 
@@ -164,19 +166,23 @@ export class PlayerSheet extends ActorSheet {
     switch (button[0].getAttribute('data-roll')) {
       case "force":
         dices = this.actor.system.characteristics.force;
-        this.actor.update({"system.characteristics.force": dices.splice(-1)});
+        dices.splice(-1);
+        this.actor.update({"system.characteristics.force": dices});
         break;
       case "dexterite":
         dices = this.actor.system.characteristics.dexterite;
-        this.actor.update({"system.characteristics.dexterite": dices.splice(-1)});
+        dices.splice(-1);
+        this.actor.update({"system.characteristics.dexterite": dices});
         break;
       case "sagesse":
         dices = this.actor.system.characteristics.sagesse;
-        this.actor.update({"system.characteristics.sagesse": dices.splice(-1)});
+        dices.splice(-1);
+        this.actor.update({"system.characteristics.sagesse": dices});
         break;
       case "intelligence":
         dices = this.actor.system.characteristics.intelligence;
-        this.actor.update({"system.characteristics.intelligence": dices.splice(-1)});
+        dices.splice(-1);
+        this.actor.update({"system.characteristics.intelligence": dices});
         break;
     }
   }
