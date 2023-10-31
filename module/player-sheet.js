@@ -136,19 +136,23 @@ export class PlayerSheet extends ActorSheet {
     switch (button[0].getAttribute('data-roll')) {
       case "force":
         dices = this.actor.system.characteristics.force;
-        this.actor.update({"system.characteristics.force": dices.push(1)});
+        dices.push(1);
+        this.actor.update({"system.characteristics.force": dices});
         break;
       case "dexterite":
         dices = this.actor.system.characteristics.dexterite;
-        this.actor.update({"system.characteristics.dexterite": dices.push(1)});
+        dices.push(1);
+        this.actor.update({"system.characteristics.dexterite": dices});
         break;
       case "sagesse":
         dices = this.actor.system.characteristics.sagesse;
-        this.actor.update({"system.characteristics.sagesse": dices.push(1)});
+        dices.push(1);
+        this.actor.update({"system.characteristics.sagesse": dices});
         break;
       case "intelligence":
         dices = this.actor.system.characteristics.intelligence;
-        this.actor.update({"system.characteristics.intelligence": dices.push(1)});
+        dices.push(1);
+        this.actor.update({"system.characteristics.intelligence": dices});
         break;
     }
   }
