@@ -55,7 +55,7 @@ export class PlayerSheet extends ActorSheet {
 
     //Attributes
     html.find(".attributes .add-dice").on("click", this._onAddDice.bind(this));
-    html.find(".attributes .remove-dice").on("change", this._onRemoveDice.bind(this));
+    html.find(".attributes .remove-dice").on("click", this._onRemoveDice.bind(this));
   }
   /* -------------------------------------------- */
 
@@ -112,7 +112,9 @@ export class PlayerSheet extends ActorSheet {
   }
 
   _onAddDice(event) {
-    let input = $(event.currentTarget);
+    let dices = this.actor.system.characteristics.force;
+    dices.push(1);
+    this.actor.update({"system.characteristics.force": dices});
   }
 
   _onRemoveDice(event) {

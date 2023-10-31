@@ -60,11 +60,13 @@
                 <h1>Force</h1>
                 <label>Trancher</label>
                 <div class="dice-pool">
-
+                    {{#each data.characteristics.force |dice id|}}
+                        {{dice}}
+                    {{/each}}
                 </div>
                 <div class="col">
-                    <a class="button add-dice" style="max-width: 50px;"><i class="fas fa-plus"></i></a>
-                    <a class="button remove-dice" style="max-width: 50px;"><i class="fas fa-trash"></i></a>
+                    <a class="button add-dice" style="max-width: 20px;"><i class="fas fa-plus"></i></a>
+                    <a class="button remove-dice" style="max-width: 20px;"><i class="fas fa-trash"></i></a>
                 </div>
             </div>
 
