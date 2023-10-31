@@ -52,6 +52,10 @@ export class PlayerSheet extends ActorSheet {
     //Skills
     html.find(".skills .rollable").on("click", this._onDiceRoll.bind(this));
     html.find(".skills .dice").on("change", this._onItemUpdate.bind(this));
+
+    //Attributes
+    html.find(".attributes .add-dice").on("click", this._onAddDice.bind(this));
+    html.find(".attributes .remove-dice").on("change", this._onRemoveDice.bind(this));
   }
   /* -------------------------------------------- */
 
@@ -107,6 +111,13 @@ export class PlayerSheet extends ActorSheet {
     this.actor.items.getName(item.name).update({"system.dice": input[0].value});
   }
 
+  _onAddDice(event) {
+    let input = $(event.currentTarget);
+  }
+
+  _onRemoveDice(event) {
+    let input = $(event.currentTarget);
+  }
   /* -------------------------------------------- */
 
   /** @inheritdoc */
