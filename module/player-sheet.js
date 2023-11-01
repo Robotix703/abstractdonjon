@@ -57,6 +57,7 @@ export class PlayerSheet extends ActorSheet {
     html.find(".attributes .add-dice").on("click", this._onAddDice.bind(this));
     html.find(".attributes .remove-dice").on("click", this._onRemoveDice.bind(this));
     html.find(".attributes .roll-dice").on("click", this._onAttributeDiceRoll.bind(this));
+    html.find(".attributes .dice").on("change", this._onAttributeDiceChange.bind(this));
   }
   /* -------------------------------------------- */
 
@@ -156,6 +157,12 @@ export class PlayerSheet extends ActorSheet {
     const item = this.actor.items.get(li.data("itemId"));
 
     this.actor.items.getName(item.name).update({"system.dice": input[0].value});
+  }
+
+  _onAttributeDiceChange(event) {
+    let input = $(event.currentTarget);
+    const li = input.parents(".item");
+    const item = this.actor.items.get(li.data("itemId"));
   }
 
   _onAddDice(event) {
