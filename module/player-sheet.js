@@ -110,6 +110,18 @@ export class PlayerSheet extends ActorSheet {
         name = "Force";
         amount = this.actor.system.characteristics.force.length? this.actor.system.characteristics.force.length : 0;
         break;
+      case "dexterite":
+        name = "Dextérité";
+        amount = this.actor.system.characteristics.dexterite.length? this.actor.system.characteristics.dexterite.length : 0;
+        break;
+      case "sagesse":
+        name = "Sagesse";
+        amount = this.actor.system.characteristics.sagesse.length? this.actor.system.characteristics.sagesse.length : 0;
+        break;
+      case "intelligence":
+        name = "Intelligence";
+        amount = this.actor.system.characteristics.intelligence.length? this.actor.system.characteristics.intelligence.length : 0;
+        break;
     }
 
     let r = new Roll(amount + "d6", this.actor.getRollData());
@@ -119,6 +131,15 @@ export class PlayerSheet extends ActorSheet {
     switch (button[0].getAttribute('data-roll')) {
       case "force":
         this.actor.update({"system.characteristics.force": dices});
+        break;
+      case "dexterite":
+        this.actor.update({"system.characteristics.dexterite": dices});
+        break;
+      case "sagesse":
+        this.actor.update({"system.characteristics.sagesse": dices});
+        break;
+      case "intelligence":
+        this.actor.update({"system.characteristics.intelligence": dices});
         break;
     }
 

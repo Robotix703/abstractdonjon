@@ -93,7 +93,7 @@
                 <label>Sentir</label>
                 <div class="dice-pool" style="display: flex;">
                     {{#each data.system.characteristics.sagesse}}
-                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                        <input class="dice" type="number" min="0" max="6" value="{{this}}" style="margin: 10px;"/>
                     {{/each}}
                 </div>
                 <div class="col" style="display: flex;">
