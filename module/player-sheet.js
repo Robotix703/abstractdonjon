@@ -161,8 +161,27 @@ export class PlayerSheet extends ActorSheet {
 
   _onAttributeDiceChange(event) {
     let input = $(event.currentTarget);
-    const li = input.parents(".item");
-    const item = this.actor.items.get(li.data("itemId"));
+    const li = input.parents(".dice-pool")[0];
+
+    let dices = [];
+    for (const child of li.children) {
+      dices.push(child.value);
+    }
+
+    switch (li.getAttribute('data-roll')) {
+      case "force":
+        this.actor.update({"system.characteristics.force": dices});
+        break;
+      case "dexterite":
+        this.actor.update({"system.characteristics.dexterite": dices});
+        break;
+      case "sagesse":
+        this.actor.update({"system.characteristics.sagesse": dices});
+        break;
+      case "intelligence":
+        this.actor.update({"system.characteristics.intelligence": dices});
+        break;
+    }
   }
 
   _onAddDice(event) {
