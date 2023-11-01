@@ -55,9 +55,9 @@
 
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
-            <div style="display: flex;">
+            <div style="display: flex; max-width: 100%;">
                 <!--Strength-->
-                <div>
+                <div style="max-width: 50%;">
                     <h1>Force</h1>
                     <label>Trancher</label>
                     <div class="dice-pool" data-roll="force" style="display: flex;">
@@ -89,9 +89,9 @@
                 </div>
             </div>
             
-            <div style="display: flex;">
+            <div style="display: flex; width: 100%;">
                 <!--Wisdom-->
-                <div>
+                <div style="width: 50%;">
                     <h1>Sagesse</h1>
                     <label>Sentir</label>
                     <div class="dice-pool" data-roll="sagesse" style="display: flex;">
@@ -158,10 +158,10 @@
     
                             <!--Dice-->
                             <input class="dice" type="number" name="item.dice" value="{{item.system.dice}}"/>
-                            <button class="rollable" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
     
                             <!--Buttons-->
                             <div class="item-controls">
+                                <button class="rollable" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
                                 <button class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></button>
                             </div>
                         </li>
@@ -198,7 +198,9 @@
                             <button class="rollable" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
     
                             <!--Buttons-->
-                            <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                            <div class="item-controls">
+                                <button class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></button>
+                            </div>
                         </li>
                     </div>
                     {{/if}}
