@@ -115,7 +115,13 @@ export class PlayerSheet extends ActorSheet {
     let r = new Roll(amount + "d6", this.actor.getRollData());
     await r.evaluate();
 
-    //this.actor.items.getName(item.name).update({"system.dice": r.total});
+    let dices = r.dice[0].results.map(e => e.result);
+    switch (button[0].getAttribute('data-roll')) {
+      case "force":
+        this.actor.update({"system.characteristics.force": dices});
+        break;
+    }
+
     return r.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
