@@ -123,6 +123,10 @@ export class PlayerSheet extends ActorSheet {
         name = "Intelligence";
         amount = this.actor.system.characteristics.intelligence.length? this.actor.system.characteristics.intelligence.length : 0;
         break;
+      case "bonus":
+        name = "Bonus";
+        amount = 1;
+        break;
     }
 
     let r = new Roll(amount + "d6", this.actor.getRollData());
@@ -141,6 +145,9 @@ export class PlayerSheet extends ActorSheet {
         break;
       case "intelligence":
         this.actor.update({"system.characteristics.intelligence": dices});
+        break;
+      case "bonus":
+        this.actor.update({"system.characteristics.bonus": dices[0]});
         break;
     }
 
@@ -180,6 +187,9 @@ export class PlayerSheet extends ActorSheet {
         break;
       case "intelligence":
         this.actor.update({"system.characteristics.intelligence": dices});
+        break;
+      case "bonus":
+        this.actor.update({"system.characteristics.bonus": dices[0]});
         break;
     }
   }

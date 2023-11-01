@@ -11,7 +11,8 @@
 			"force": [],
 			"dexterite": [],
 			"sagesse": [],
-			"intelligence": []
+			"intelligence": [],
+			"bonus": 0
 		},
 		"skills": {
 			

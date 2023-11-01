@@ -65,7 +65,7 @@
                     {{/each}}
                 </div>
                 <div class="col" style="display: flex;">
-                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="force"><i class="fas fa-plus"></i></a>
+                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="force"><i class="fas fa-plus"></i></a>
                     <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="force"><i class="fas fa-trash"></i></a>
                     <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="force"><i class="fas fa-dice-d20"></i></a>
                 </div>
@@ -122,6 +122,12 @@
             <!--Bonus-->
             <div>
                 <h1>Bonus</h1>
+                <div class="dice-pool" data-roll="bonus" style="display: flex;">
+                        <input class="dice" type="number" name="data.system.characteristics.bonus" value="{{data.system.characteristics.bonus}}" style="margin: 10px;"/>
+                </div>
+                <div class="col" style="display: flex;">
+                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="bonus"><i class="fas fa-dice-d20"></i></a>
+                </div>
             </div>
         </div>
 
