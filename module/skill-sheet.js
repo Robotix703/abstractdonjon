@@ -1,5 +1,4 @@
 import { EntitySheetHelper } from "./helper.js";
-import {ATTRIBUTE_TYPES} from "./constants.js";
 
 /**
  * Extend the basic ItemSheet with some very simple modifications
@@ -26,7 +25,7 @@ export class SkillSheet extends ItemSheet {
     const context = await super.getData(options);
     EntitySheetHelper.getAttributeData(context.data);
     context.systemData = context.data.system;
-    context.dtypes = ATTRIBUTE_TYPES;
+    context.dtypes = ["String", "Number", "Boolean", "Formula", "Resource"];
     context.descriptionHTML = await TextEditor.enrichHTML(context.systemData.description, {
       secrets: this.document.isOwner,
       async: true

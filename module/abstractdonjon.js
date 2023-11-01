@@ -1,9 +1,3 @@
-/**
- * A simple and flexible system for world-building using an arbitrary collection of character and item attributes
- * Author: Atropos
- */
-
-// Import Modules
 import { SimpleActor } from "./actor.js";
 import { SimpleItem } from "./item.js";
 
@@ -14,17 +8,12 @@ import { PlayerSheet } from "./player-sheet.js";
 import { NPCSheet } from "./npc-sheet.js";
 
 import { createabstractdonjonMacro } from "./macro.js";
-import { SimpleToken, SimpleTokenDocument } from "./token.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
-
-/**
- * Init hook.
- */
 Hooks.once("init", async function() {
-  console.log(`Initializing Simple abstractdonjon System`);
+  console.log(`Initializing abstractdonjon System`);
 
   /**
    * Set an initiative formula for the system. This will be updated later.
@@ -40,11 +29,8 @@ Hooks.once("init", async function() {
     createabstractdonjonMacro
   };
 
-  // Define custom Document classes
   CONFIG.Actor.documentClass = SimpleActor;
   CONFIG.Item.documentClass = SimpleItem;
-  CONFIG.Token.documentClass = SimpleTokenDocument;
-  CONFIG.Token.objectClass = SimpleToken;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -71,7 +57,7 @@ Hooks.once("init", async function() {
     hint: "SETTINGS.SimpleInitFormulaL",
     scope: "world",
     type: String,
-    default: "2d10",
+    default: "1",
     config: true,
     onChange: formula => _simpleUpdateInit(formula, true)
   });

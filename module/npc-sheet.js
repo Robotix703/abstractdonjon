@@ -1,5 +1,4 @@
 import { EntitySheetHelper } from "./helper.js";
-import {ATTRIBUTE_TYPES} from "./constants.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -27,7 +26,7 @@ export class NPCSheet extends ActorSheet {
     const context = await super.getData(options);
     context.shorthand = !!game.settings.get("abstractdonjon", "macroShorthand");
     context.systemData = context.data.system;
-    context.dtypes = ATTRIBUTE_TYPES;
+    context.dtypes = ["String", "Number", "Boolean", "Formula", "Resource"];
     context.biographyHTML = await TextEditor.enrichHTML(context.systemData.biographie, {
       secrets: this.document.isOwner,
       async: true
