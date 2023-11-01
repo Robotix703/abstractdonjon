@@ -55,70 +55,74 @@
 
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
-            <!--Strength-->
-            <div>
-                <h1>Force</h1>
-                <label>Trancher</label>
-                <div class="dice-pool" data-roll="force" style="display: flex;">
-                    {{#each data.system.characteristics.force}}
-                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
-                    {{/each}}
+            <div style="display: flex;">
+                <!--Strength-->
+                <div>
+                    <h1>Force</h1>
+                    <label>Trancher</label>
+                    <div class="dice-pool" data-roll="force" style="display: flex;">
+                        {{#each data.system.characteristics.force}}
+                            <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                        {{/each}}
+                    </div>
+                    <div class="col" style="display: flex;">
+                        <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="force"><i class="fas fa-plus"></i></a>
+                        <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="force"><i class="fas fa-trash"></i></a>
+                        <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="force"><i class="fas fa-dice-d20"></i></a>
+                    </div>
                 </div>
-                <div class="col" style="display: flex;">
-                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="force"><i class="fas fa-plus"></i></a>
-                    <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="force"><i class="fas fa-trash"></i></a>
-                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="force"><i class="fas fa-dice-d20"></i></a>
+
+                <!--Dexterity-->
+                <div>
+                    <h1>Dextérité</h1>
+                    <label>Esquiver</label>
+                    <div class="dice-pool" data-roll="dexterite" style="display: flex;">
+                        {{#each data.system.characteristics.dexterite}}
+                            <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                        {{/each}}
+                    </div>
+                    <div class="col" style="display: flex;">
+                        <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="dexterite"><i class="fas fa-plus"></i></a>
+                        <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="dexterite"><i class="fas fa-trash"></i></a>
+                        <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="dexterite"><i class="fas fa-dice-d20"></i></a>
+                    </div>
                 </div>
             </div>
-
-            <!--Dexterity-->
-            <div>
-                <h1>Dextérité</h1>
-                <label>Esquiver</label>
-                <div class="dice-pool" data-roll="dexterite" style="display: flex;">
-                    {{#each data.system.characteristics.dexterite}}
-                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
-                    {{/each}}
+            
+            <div style="display: flex;">
+                <!--Wisdom-->
+                <div>
+                    <h1>Sagesse</h1>
+                    <label>Sentir</label>
+                    <div class="dice-pool" data-roll="sagesse" style="display: flex;">
+                        {{#each data.system.characteristics.sagesse}}
+                            <input class="dice" type="number" min="0" max="6" value="{{this}}" style="margin: 10px;"/>
+                        {{/each}}
+                    </div>
+                    <div class="col" style="display: flex;">
+                        <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="sagesse"><i class="fas fa-plus"></i></a>
+                        <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="sagesse"><i class="fas fa-trash"></i></a>
+                        <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="sagesse"><i class="fas fa-dice-d20"></i></a>
+                    </div>
                 </div>
-                <div class="col" style="display: flex;">
-                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="dexterite"><i class="fas fa-plus"></i></a>
-                    <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="dexterite"><i class="fas fa-trash"></i></a>
-                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="dexterite"><i class="fas fa-dice-d20"></i></a>
+
+                <!--Intelligence-->
+                <div>
+                    <h1>Intelligence</h1>
+                    <label>Convaincre</label>
+                    <div class="dice-pool" data-roll="intelligence" style="display: flex;">
+                        {{#each data.system.characteristics.intelligence}}
+                            <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                        {{/each}}
+                    </div>
+                    <div class="col" style="display: flex;">
+                        <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="intelligence"><i class="fas fa-plus"></i></a>
+                        <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="intelligence"><i class="fas fa-trash"></i></a>
+                        <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="intelligence"><i class="fas fa-dice-d20"></i></a>
+                    </div>
                 </div>
             </div>
-
-            <!--Wisdom-->
-            <div>
-                <h1>Sagesse</h1>
-                <label>Sentir</label>
-                <div class="dice-pool" data-roll="sagesse" style="display: flex;">
-                    {{#each data.system.characteristics.sagesse}}
-                        <input class="dice" type="number" min="0" max="6" value="{{this}}" style="margin: 10px;"/>
-                    {{/each}}
-                </div>
-                <div class="col" style="display: flex;">
-                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="sagesse"><i class="fas fa-plus"></i></a>
-                    <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="sagesse"><i class="fas fa-trash"></i></a>
-                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="sagesse"><i class="fas fa-dice-d20"></i></a>
-                </div>
-            </div>
-
-            <!--Intelligence-->
-            <div>
-                <h1>Intelligence</h1>
-                <label>Convaincre</label>
-                <div class="dice-pool" data-roll="intelligence" style="display: flex;">
-                    {{#each data.system.characteristics.intelligence}}
-                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
-                    {{/each}}
-                </div>
-                <div class="col" style="display: flex;">
-                    <a class="button add-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="intelligence"><i class="fas fa-plus"></i></a>
-                    <a class="button remove-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="intelligence"><i class="fas fa-trash"></i></a>
-                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="intelligence"><i class="fas fa-dice-d20"></i></a>
-                </div>
-            </div>
-
+            
             <!--Bonus-->
             <div>
                 <h1>Bonus</h1>
@@ -126,7 +130,7 @@
                         <input class="dice" type="number" name="data.system.characteristics.bonus" value="{{data.system.characteristics.bonus}}" style="margin: 10px;"/>
                 </div>
                 <div class="col" style="display: flex;">
-                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px;" data-roll="bonus"><i class="fas fa-dice-d20"></i></a>
+                    <a class="button roll-dice" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" data-roll="bonus"><i class="fas fa-dice-d20"></i></a>
                 </div>
             </div>
         </div>
@@ -154,11 +158,11 @@
     
                             <!--Dice-->
                             <input class="dice" type="number" name="item.dice" value="{{item.system.dice}}"/>
-                            <button class="rollable" style="max-width: 30px; margin-left: 30px;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
+                            <button class="rollable" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
     
                             <!--Buttons-->
                             <div class="item-controls">
-                                <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                                <button class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></button>
                             </div>
                         </li>
                     </div>
@@ -191,12 +195,10 @@
     
                             <!--Dice-->
                             <input class="dice" type="number" name="item.dice" value="{{item.system.dice}}"/>
-                            <button class="rollable" style="max-width: 30px; margin-left: 30px;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
+                            <button class="rollable" style="max-width: 30px; max-height: 30px; margin: 10px; text-align: center;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
     
                             <!--Buttons-->
-                            <div class="item-controls">
-                                <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
-                            </div>
+                            <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
                         </li>
                     </div>
                     {{/if}}
