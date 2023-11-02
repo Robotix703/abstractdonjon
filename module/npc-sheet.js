@@ -13,9 +13,9 @@ export class NPCSheet extends ActorSheet {
       template: "systems/abstractdonjon/templates/npc-sheet.html",
       width: 700,
       height: 750,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
       scrollY: [".biographie", ".items", ".attributes"],
-      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });
   }
 
@@ -41,7 +41,7 @@ export class NPCSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
-    if ( !this.isEditable ) return;
+    if (!this.isEditable) return;
 
     // Attribute Management
 
@@ -66,10 +66,10 @@ export class NPCSheet extends ActorSheet {
     const item = this.actor.items.get(li?.dataset.itemId);
 
     // Handle different actions
-    switch ( button.dataset.action ) {
+    switch (button.dataset.action) {
       case "create":
         const cls = getDocumentClass("Item");
-        return cls.create({name: game.i18n.localize("SIMPLE.ItemNew"), type: "item"}, {parent: this.actor});
+        return cls.create({ name: game.i18n.localize("SIMPLE.ItemNew"), type: "item" }, { parent: this.actor });
       case "edit":
         return item.sheet.render(true);
       case "delete":

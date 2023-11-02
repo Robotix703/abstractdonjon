@@ -6,7 +6,7 @@
  * @returns {Promise}
  */
 export async function createabstractdonjonMacro(data, slot) {
-  if ( !data.roll || !data.label ) return false;
+  if (!data.roll || !data.label) return false;
   const command = `const roll = new Roll("${data.roll}", actor ? actor.getRollData() : {});
   roll.toMessage({speaker, flavor: "${data.label}"});`;
   let macro = game.macros.find(m => (m.name === data.label) && (m.command === command));

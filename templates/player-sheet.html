@@ -3,12 +3,12 @@
     {{!-- Sheet Header --}}
     <header class="sheet-header">
         <!--Portrait-->
-        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100"/>
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
 
         <div class="header-fields">
             <!--name-->
             <h1 class="charname">
-                <input name="system.name" type="text" value="{{system.name}}" placeholder="Nom"/>
+                <input name="system.name" type="text" value="{{system.name}}" placeholder="Nom" />
             </h1>
 
             <div class="resource">
@@ -16,7 +16,7 @@
                 <div class="ressource-element" style="width: 100px;">
                     <label for="system.xp" class="resource-label">XP</label>
                     <div class="resource-content flexrow flex-center flex-between">
-                        <input type="number" name="system.xp" value="{{systemData.xp}}"/>
+                        <input type="number" name="system.xp" value="{{systemData.xp}}" />
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
                 <div class="ressource-element" style="width: 100px;">
                     <label for="system.level" class="resource-label">Niveau</label>
                     <div class="resource-content flexrow flex-center flex-between">
-                        <input type="number" name="system.level" value="{{systemData.level}}"/>
+                        <input type="number" name="system.level" value="{{systemData.level}}" />
                     </div>
                 </div>
             </div>
@@ -45,10 +45,11 @@
         {{!-- Description Tab --}}
         <div class="tab description" data-group="primary" data-tab="description">
             <!--Biographie-->
-            <div >
+            <div>
                 <h1>Biographie</h1>
                 <div class="long-texte">
-                    {{editor biographyHTML target="system.biographie" button=true editable=editable engine="prosemirror"}}
+                    {{editor biographyHTML target="system.biographie" button=true editable=editable
+                    engine="prosemirror"}}
                 </div>
             </div>
         </div>
@@ -62,13 +63,19 @@
                     <label>Trancher</label>
                     <div class="dice-pool" data-roll="force" style="display: flex;">
                         {{#each data.system.characteristics.force}}
-                            <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;" />
                         {{/each}}
                     </div>
                     <div class="col" style="display: flex;">
-                        <a class="button add-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="force"><i class="fas fa-plus"></i></a>
-                        <a class="button remove-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="force"><i class="fas fa-trash"></i></a>
-                        <a class="button roll-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="force"><i class="fas fa-dice-d20"></i></a>
+                        <a class="button add-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="force"><i class="fas fa-plus"></i></a>
+                        <a class="button remove-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="force"><i class="fas fa-trash"></i></a>
+                        <a class="button roll-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="force"><i class="fas fa-dice-d20"></i></a>
                     </div>
                 </div>
 
@@ -78,17 +85,23 @@
                     <label>Esquiver</label>
                     <div class="dice-pool" data-roll="dexterite" style="display: flex;">
                         {{#each data.system.characteristics.dexterite}}
-                            <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;" />
                         {{/each}}
                     </div>
                     <div class="col" style="display: flex;">
-                        <a class="button add-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="dexterite"><i class="fas fa-plus"></i></a>
-                        <a class="button remove-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="dexterite"><i class="fas fa-trash"></i></a>
-                        <a class="button roll-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="dexterite"><i class="fas fa-dice-d20"></i></a>
+                        <a class="button add-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="dexterite"><i class="fas fa-plus"></i></a>
+                        <a class="button remove-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="dexterite"><i class="fas fa-trash"></i></a>
+                        <a class="button roll-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="dexterite"><i class="fas fa-dice-d20"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <div style="display: flex; width: 100%;">
                 <!--Wisdom-->
                 <div style="width: 50%;">
@@ -96,13 +109,19 @@
                     <label>Sentir</label>
                     <div class="dice-pool" data-roll="sagesse" style="display: flex;">
                         {{#each data.system.characteristics.sagesse}}
-                            <input class="dice" type="number" min="0" max="6" value="{{this}}" style="margin: 10px;"/>
+                        <input class="dice" type="number" min="0" max="6" value="{{this}}" style="margin: 10px;" />
                         {{/each}}
                     </div>
                     <div class="col" style="display: flex;">
-                        <a class="button add-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="sagesse"><i class="fas fa-plus"></i></a>
-                        <a class="button remove-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="sagesse"><i class="fas fa-trash"></i></a>
-                        <a class="button roll-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="sagesse"><i class="fas fa-dice-d20"></i></a>
+                        <a class="button add-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="sagesse"><i class="fas fa-plus"></i></a>
+                        <a class="button remove-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="sagesse"><i class="fas fa-trash"></i></a>
+                        <a class="button roll-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="sagesse"><i class="fas fa-dice-d20"></i></a>
                     </div>
                 </div>
 
@@ -112,25 +131,33 @@
                     <label>Convaincre</label>
                     <div class="dice-pool" data-roll="intelligence" style="display: flex;">
                         {{#each data.system.characteristics.intelligence}}
-                            <input class="dice" type="number" value="{{this}}" style="margin: 10px;"/>
+                        <input class="dice" type="number" value="{{this}}" style="margin: 10px;" />
                         {{/each}}
                     </div>
                     <div class="col" style="display: flex;">
-                        <a class="button add-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="intelligence"><i class="fas fa-plus"></i></a>
-                        <a class="button remove-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="intelligence"><i class="fas fa-trash"></i></a>
-                        <a class="button roll-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="intelligence"><i class="fas fa-dice-d20"></i></a>
+                        <a class="button add-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="intelligence"><i class="fas fa-plus"></i></a>
+                        <a class="button remove-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="intelligence"><i class="fas fa-trash"></i></a>
+                        <a class="button roll-dice"
+                            style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                            data-roll="intelligence"><i class="fas fa-dice-d20"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <!--Bonus-->
             <div>
                 <h1>Bonus</h1>
                 <div class="dice-pool" data-roll="bonus" style="display: flex;">
-                        <input class="dice" type="number" name="data.system.characteristics.bonus" value="{{data.system.characteristics.bonus}}" style="margin: 10px;"/>
+                    <input class="dice" type="number" name="data.system.characteristics.bonus"
+                        value="{{data.system.characteristics.bonus}}" style="margin: 10px;" />
                 </div>
                 <div class="col" style="display: flex;">
-                    <a class="button roll-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;" data-roll="bonus"><i class="fas fa-dice-d20"></i></a>
+                    <a class="button roll-dice" style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                        data-roll="bonus"><i class="fas fa-dice-d20"></i></a>
                 </div>
             </div>
         </div>
@@ -144,24 +171,26 @@
                     <div>
                         <li class="item flexrow" data-item-id="{{item._id}}">
                             <!--Image-->
-                            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-    
+                            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+
                             <!--Title-->
-                            <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit">
+                            <a class="item-control" title="{{ localize " SIMPLE.ItemEdit" }}" data-action="edit">
                                 <h4 class="item-name">{{item.name}}</h4>
                             </a>
-    
+
                             <!--Description-->
                             <p>
                                 {{item.system.description}}
                             </p>
-    
+
                             <!--Dice-->
-                            <input class="dice" style="margin-right: 20px;" type="number" name="item.dice" value="{{item.system.dice}}"/>
-    
+                            <input class="dice" style="margin-right: 20px;" type="number" name="item.dice"
+                                value="{{item.system.dice}}" />
+
                             <!--Buttons-->
                             <div class="item-controls" style="display: flex;">
-                                <button class="rollable" style="margin-right: 5px;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
+                                <button class="rollable" style="margin-right: 5px;" name="{{slugify item.name}}"><i
+                                        class="fa-solid fa-dice-d20"></i></button>
                                 <button class="item-control" data-action="delete"><i class="fas fa-trash"></i></button>
                             </div>
                         </li>
@@ -181,24 +210,26 @@
                     <div>
                         <li class="item flexrow" data-item-id="{{item._id}}">
                             <!--Image-->
-                            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-    
+                            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+
                             <!--Title-->
-                            <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit">
+                            <a class="item-control" title="{{ localize " SIMPLE.ItemEdit" }}" data-action="edit">
                                 <h4 class="item-name">{{item.name}}</h4>
                             </a>
-    
+
                             <!--Description-->
                             <p>
                                 {{item.system.description}}
                             </p>
-    
+
                             <!--Dice-->
-                            <input class="dice" style="margin-right: 20px;" type="number" name="item.dice" value="{{item.system.dice}}"/>
-                            
+                            <input class="dice" style="margin-right: 20px;" type="number" name="item.dice"
+                                value="{{item.system.dice}}" />
+
                             <!--Buttons-->
                             <div class="item-controls" style="display: flex;">
-                                <button class="rollable" style="margin-right: 5px;" name="{{slugify item.name}}"><i class="fa-solid fa-dice-d20"></i></button>
+                                <button class="rollable" style="margin-right: 5px;" name="{{slugify item.name}}"><i
+                                        class="fa-solid fa-dice-d20"></i></button>
                                 <button class="item-control" data-action="delete"><i class="fas fa-trash"></i></button>
                             </div>
                         </li>

@@ -13,9 +13,9 @@ export class PlayerSheet extends ActorSheet {
       template: "systems/abstractdonjon/templates/player-sheet.html",
       width: 700,
       height: 750,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
       scrollY: [".biographie", ".items", ".attributes"],
-      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });
   }
 
@@ -41,7 +41,7 @@ export class PlayerSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
-    if ( !this.isEditable ) return;
+    if (!this.isEditable) return;
 
     //Items
     html.find(".item-control").click(this._onItemControl.bind(this));
@@ -74,7 +74,7 @@ export class PlayerSheet extends ActorSheet {
     const item = this.actor.items.get(li?.dataset.itemId);
 
     // Handle different actions
-    switch ( button.dataset.action ) {
+    switch (button.dataset.action) {
       case "edit":
         return item.sheet.render(true);
       case "delete":
@@ -92,7 +92,7 @@ export class PlayerSheet extends ActorSheet {
     let r = new Roll("1d6", this.actor.getRollData());
     await r.evaluate();
 
-    this.actor.items.getName(item.name).update({"system.dice": r.total});
+    this.actor.items.getName(item.name).update({ "system.dice": r.total });
     return r.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -108,19 +108,19 @@ export class PlayerSheet extends ActorSheet {
     switch (button[0].getAttribute('data-roll')) {
       case "force":
         name = "Force";
-        amount = this.actor.system.characteristics.force.length? this.actor.system.characteristics.force.length : 0;
+        amount = this.actor.system.characteristics.force.length ? this.actor.system.characteristics.force.length : 0;
         break;
       case "dexterite":
         name = "Dextérité";
-        amount = this.actor.system.characteristics.dexterite.length? this.actor.system.characteristics.dexterite.length : 0;
+        amount = this.actor.system.characteristics.dexterite.length ? this.actor.system.characteristics.dexterite.length : 0;
         break;
       case "sagesse":
         name = "Sagesse";
-        amount = this.actor.system.characteristics.sagesse.length? this.actor.system.characteristics.sagesse.length : 0;
+        amount = this.actor.system.characteristics.sagesse.length ? this.actor.system.characteristics.sagesse.length : 0;
         break;
       case "intelligence":
         name = "Intelligence";
-        amount = this.actor.system.characteristics.intelligence.length? this.actor.system.characteristics.intelligence.length : 0;
+        amount = this.actor.system.characteristics.intelligence.length ? this.actor.system.characteristics.intelligence.length : 0;
         break;
       case "bonus":
         name = "Bonus";
@@ -134,19 +134,19 @@ export class PlayerSheet extends ActorSheet {
     let dices = r.dice[0].results.map(e => e.result);
     switch (button[0].getAttribute('data-roll')) {
       case "force":
-        this.actor.update({"system.characteristics.force": dices});
+        this.actor.update({ "system.characteristics.force": dices });
         break;
       case "dexterite":
-        this.actor.update({"system.characteristics.dexterite": dices});
+        this.actor.update({ "system.characteristics.dexterite": dices });
         break;
       case "sagesse":
-        this.actor.update({"system.characteristics.sagesse": dices});
+        this.actor.update({ "system.characteristics.sagesse": dices });
         break;
       case "intelligence":
-        this.actor.update({"system.characteristics.intelligence": dices});
+        this.actor.update({ "system.characteristics.intelligence": dices });
         break;
       case "bonus":
-        this.actor.update({"system.characteristics.bonus": dices[0]});
+        this.actor.update({ "system.characteristics.bonus": dices[0] });
         break;
     }
 
@@ -162,7 +162,7 @@ export class PlayerSheet extends ActorSheet {
     const li = input.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
 
-    this.actor.items.getName(item.name).update({"system.dice": input[0].value});
+    this.actor.items.getName(item.name).update({ "system.dice": input[0].value });
   }
 
   _onAttributeDiceChange(event) {
@@ -176,19 +176,19 @@ export class PlayerSheet extends ActorSheet {
 
     switch (li.getAttribute('data-roll')) {
       case "force":
-        this.actor.update({"system.characteristics.force": dices});
+        this.actor.update({ "system.characteristics.force": dices });
         break;
       case "dexterite":
-        this.actor.update({"system.characteristics.dexterite": dices});
+        this.actor.update({ "system.characteristics.dexterite": dices });
         break;
       case "sagesse":
-        this.actor.update({"system.characteristics.sagesse": dices});
+        this.actor.update({ "system.characteristics.sagesse": dices });
         break;
       case "intelligence":
-        this.actor.update({"system.characteristics.intelligence": dices});
+        this.actor.update({ "system.characteristics.intelligence": dices });
         break;
       case "bonus":
-        this.actor.update({"system.characteristics.bonus": dices[0]});
+        this.actor.update({ "system.characteristics.bonus": dices[0] });
         break;
     }
   }
@@ -201,22 +201,22 @@ export class PlayerSheet extends ActorSheet {
       case "force":
         dices = this.actor.system.characteristics.force;
         dices.push(1);
-        this.actor.update({"system.characteristics.force": dices});
+        this.actor.update({ "system.characteristics.force": dices });
         break;
       case "dexterite":
         dices = this.actor.system.characteristics.dexterite;
         dices.push(1);
-        this.actor.update({"system.characteristics.dexterite": dices});
+        this.actor.update({ "system.characteristics.dexterite": dices });
         break;
       case "sagesse":
         dices = this.actor.system.characteristics.sagesse;
         dices.push(1);
-        this.actor.update({"system.characteristics.sagesse": dices});
+        this.actor.update({ "system.characteristics.sagesse": dices });
         break;
       case "intelligence":
         dices = this.actor.system.characteristics.intelligence;
         dices.push(1);
-        this.actor.update({"system.characteristics.intelligence": dices});
+        this.actor.update({ "system.characteristics.intelligence": dices });
         break;
     }
   }
@@ -229,22 +229,22 @@ export class PlayerSheet extends ActorSheet {
       case "force":
         dices = this.actor.system.characteristics.force;
         dices.splice(-1);
-        this.actor.update({"system.characteristics.force": dices});
+        this.actor.update({ "system.characteristics.force": dices });
         break;
       case "dexterite":
         dices = this.actor.system.characteristics.dexterite;
         dices.splice(-1);
-        this.actor.update({"system.characteristics.dexterite": dices});
+        this.actor.update({ "system.characteristics.dexterite": dices });
         break;
       case "sagesse":
         dices = this.actor.system.characteristics.sagesse;
         dices.splice(-1);
-        this.actor.update({"system.characteristics.sagesse": dices});
+        this.actor.update({ "system.characteristics.sagesse": dices });
         break;
       case "intelligence":
         dices = this.actor.system.characteristics.intelligence;
         dices.splice(-1);
-        this.actor.update({"system.characteristics.intelligence": dices});
+        this.actor.update({ "system.characteristics.intelligence": dices });
         break;
     }
   }

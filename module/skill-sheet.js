@@ -13,7 +13,7 @@ export class SkillSheet extends ItemSheet {
       template: "systems/abstractdonjon/templates/item-sheet.html",
       width: 520,
       height: 480,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
       scrollY: [".attributes"],
     });
   }
@@ -40,10 +40,10 @@ export class SkillSheet extends ItemSheet {
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
-    if ( !this.isEditable ) return;
+    if (!this.isEditable) return;
 
     // Attribute Management
-    
+
   }
   /* -------------------------------------------- */
 
