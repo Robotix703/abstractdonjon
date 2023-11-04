@@ -8,7 +8,7 @@
         <div class="header-fields">
             <!--name-->
             <h1 class="charname">
-                <input name="system.name" type="text" value="{{system.name}}" placeholder="Nom" />
+                <input name="name" type="text" value="{{data.name}}" placeholder="Nom" />
             </h1>
 
             <div class="resource">
@@ -48,8 +48,7 @@
             <div>
                 <h1>Biographie</h1>
                 <div class="long-texte">
-                    {{editor biographyHTML target="system.biographie" button=true editable=editable
-                    engine="prosemirror"}}
+                    {{editor biographyHTML target="system.biographie" button=true editable=editable engine="prosemirror"}}
                 </div>
             </div>
         </div>

@@ -20,18 +20,12 @@
 	  },
 	  "PNJ": {
 		"name": "",
-		"level": 0,
+		"diceAmount": 0,
+		"diceResults": [],
 		"biographie": "",
-		"xp": 0,
-		"characteristics": {
-			"force": [],
-			"dexterite": [],
-			"sagesse": [],
-			"intelligence": []
-		},
-		"skills": {
-			
-		}
+		"vulnerabilities": [],
+		"resistances": [],
+		"attacks": []
 	  }
 	},
 	"Item": {

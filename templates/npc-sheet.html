@@ -8,8 +8,7 @@
         <div class="header-fields">
             <!--name-->
             <h1 class="charname">
-                <input name="system.name" type="text" value="{{systemData.name}}" placeholder="Nom" />
-                NPC
+                <input name="name" type="text" value="{{data.name}}" placeholder="Nom" />
             </h1>
 
             <div class="resource">
@@ -28,8 +27,6 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
         <a class="item" data-tab="attributes">Caractéristiques</a>
-        <a class="item" data-tab="skills">Compétences</a>
-        <a class="item" data-tab="items">Objets</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -41,54 +38,48 @@
             <div>
                 <h1>Biographie</h1>
                 <div class="long-texte">
-                    {{editor biographyHTML target="system.biographie" button=true editable=editable
-                    engine="prosemirror"}}
+                    {{editor biographyHTML target="system.biographie" button=true editable=editable engine="prosemirror"}}
                 </div>
             </div>
         </div>
 
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
-
-        </div>
-
-        {{!-- Skills Tab --}}
-        <div class="tab skills" data-group="primary" data-tab="skills">
-
-        </div>
-
-        {{!-- Owned Items Tab --}}
-        <div class="tab items" data-group="primary" data-tab="items">
-            <!--Equipment-->
-            <h1>Equipement</h1>
-            <ol class="item-list">
-                {{#each data.items as |item id|}}
-                <div>
-                    {{#if item.system.objectType.isEquipment}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        <!--Image-->
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-
-                        <!--Title-->
-                        <a class="item-control" title="{{ localize " SIMPLE.ItemEdit" }}" data-action="edit">
-                            <h4 class="item-name">{{item.name}}</h4>
-                        </a>
-
-                        <!--Description-->
-                        <p>
-                            {{item.system.description}}
-                        </p>
-
-                        <!--Buttons-->
-                        <div class="item-controls">
-                            <a class="item-control" title="{{ localize " SIMPLE.ItemDelete" }}" data-action="delete"><i
-                                    class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    {{/if}}
+            <!--Dice amount-->
+            <div>
+                <label for="system.diceAmount" class="resource-label">Nombre de dées</label>
+                <div class="flexrow flex-center flex-between">
+                    <input type="number" name="system.diceAmount" value="{{systemData.diceAmount}}" />
                 </div>
+            </div>
+
+            <!--Dice results-->
+            <div class="dice-pool" data-roll="force" style="display: flex;">
+                {{#each data.system.characteristics.force}}
+                <input class="dice" type="number" value="{{this}}" style="margin: 10px;" />
                 {{/each}}
-            </ol>
+            </div>
+            <div class="col" style="display: flex;">
+                <a class="button add-dice"
+                    style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                    data-roll="force"><i class="fas fa-plus"></i></a>
+                <a class="button remove-dice"
+                    style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                    data-roll="force"><i class="fas fa-trash"></i></a>
+                <a class="button roll-dice"
+                    style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                    data-roll="force"><i class="fas fa-dice-d20"></i></a>
+            </div>
+
+            <!--Resistance-->
+            <div>
+                <input name="system.resistances" type="text" value="{{systemData.resistances}}" placeholder="Résistances" />
+            </div>
+
+            <!--Vulnerabilities-->
+            <div>
+                <input name="system.vulnerabilities" type="text" value="{{systemData.vulnerabilities}}" placeholder="Vulnérabilités" />
+            </div>
         </div>
     </section>
 </form>
