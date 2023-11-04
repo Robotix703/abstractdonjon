@@ -44,65 +44,53 @@ export class NPCSheet extends ActorSheet {
     if (!this.isEditable) return;
 
     // Attribute Management
-
-    // Item Controls
-    html.find(".item-control").click(this._onItemControl.bind(this));
-    html.find(".items .rollable").on("click", this._onAttackRoll.bind(this));
-    html.find(".items .equipped").on("click", this._onItemEquipped.bind(this));
+    html.find(".attributes .add-dice").on("click", this._onAddDice.bind(this));
+    html.find(".attributes .remove-dice").on("click", this._onRemoveDice.bind(this));
+    html.find(".attributes .roll-dice").on("click", this._onAttributeDiceRoll.bind(this));
+    html.find(".attributes .dice").on("change", this._onAttributeDiceChange.bind(this));
   }
   /* -------------------------------------------- */
 
-  /**
-   * Handle click events for Item control buttons within the Actor Sheet
-   * @param event
-   * @private
-   */
-  _onItemControl(event) {
-    event.preventDefault();
+  async _onAttributeDiceRoll(event) {
+    let amount = this.actor.system.diceAmount;
 
-    // Obtain event data
-    const button = event.currentTarget;
-    const li = button.closest(".item");
-    const item = this.actor.items.get(li?.dataset.itemId);
+    let r = new Roll(amount + "d6", this.actor.getRollData());
+    await r.evaluate();
 
-    // Handle different actions
-    switch (button.dataset.action) {
-      case "create":
-        const cls = getDocumentClass("Item");
-        return cls.create({ name: game.i18n.localize("SIMPLE.ItemNew"), type: "item" }, { parent: this.actor });
-      case "edit":
-        return item.sheet.render(true);
-      case "delete":
-        return item.delete();
-    }
-  }
+    let dices = r.dice[0].results.map(e => e.result);
+    this.actor.update({ "system.diceResults": dices });
 
-  /* -------------------------------------------- */
-
-  /**
-   * Listen for roll buttons on items.
-   * @param {MouseEvent} event    The originating left click event
-   */
-  _onAttackRoll(event) {
-    let button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const item = this.actor.items.get(li.data("itemId"));
-    const damage = item.system.weapon.damage + (item.system.weapon.isImproved ? 1 : 0);
-    let r = new Roll(button[0].getAttribute('data-roll'), this.actor.getRollData());
     return r.toMessage({
       user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3><h3>${damage}</h3>`
-    });
+      speaker: ChatMessage.getSpeaker({ actor: this.actor })
+    })
   }
 
-  _onItemEquipped(event) {
-    let button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const item = this.actor.items.get(li.data("itemId"));
+  _onAttributeDiceChange(event) {
+    let input = $(event.currentTarget);
+    const li = input.parents(".dice-pool")[0];
+
+    let dices = [];
+    for (const child of li.children) {
+      dices.push(child.value);
+    }
+
+    this.actor.update({ "system.diceResults": dices });
   }
 
-  /* -------------------------------------------- */
+  _onAddDice(event) {
+    let dices = this.actor.system.diceResults;
+    dices.push(1);
+
+    this.actor.update({ "system.diceResults": dices });
+  }
+
+  _onRemoveDice(event) {
+    let dices = this.actor.system.diceResults;
+    dices.splice(-1);
+
+    this.actor.update({ "system.diceResults": dices });
+  }
 
   /** @inheritdoc */
   _getSubmitData(updateData) {
