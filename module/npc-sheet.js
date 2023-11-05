@@ -44,8 +44,6 @@ export class NPCSheet extends ActorSheet {
     if (!this.isEditable) return;
 
     // Attribute Management
-    html.find(".attributes .add-dice").on("click", this._onAddDice.bind(this));
-    html.find(".attributes .remove-dice").on("click", this._onRemoveDice.bind(this));
     html.find(".attributes .roll-dice").on("click", this._onAttributeDiceRoll.bind(this));
     html.find(".attributes .dice").on("change", this._onAttributeDiceChange.bind(this));
   }
@@ -74,20 +72,6 @@ export class NPCSheet extends ActorSheet {
     for (const child of li.children) {
       dices.push(child.value);
     }
-
-    this.actor.update({ "system.diceResults": dices });
-  }
-
-  _onAddDice(event) {
-    let dices = this.actor.system.diceResults;
-    dices.push(1);
-
-    this.actor.update({ "system.diceResults": dices });
-  }
-
-  _onRemoveDice(event) {
-    let dices = this.actor.system.diceResults;
-    dices.splice(-1);
 
     this.actor.update({ "system.diceResults": dices });
   }

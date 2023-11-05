@@ -36,7 +36,7 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             <!--Dice amount-->
-            <div>
+            <div style="max-width: 30%;">
                 <label for="system.diceAmount" class="resource-label">Nombre de dées</label>
                 <div class="flexrow flex-center flex-between">
                     <input type="number" name="system.diceAmount" value="{{systemData.diceAmount}}" />
@@ -50,12 +50,6 @@
                 {{/each}}
             </div>
             <div class="col" style="display: flex;">
-                <a class="button add-dice"
-                    style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
-                    data-roll="force"><i class="fas fa-plus"></i></a>
-                <a class="button remove-dice"
-                    style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
-                    data-roll="force"><i class="fas fa-trash"></i></a>
                 <a class="button roll-dice"
                     style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
                     data-roll="force"><i class="fas fa-dice-d20"></i></a>
