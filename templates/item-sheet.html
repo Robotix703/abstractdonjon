@@ -21,7 +21,7 @@
 
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor descriptionHTML target="system.description" button=true editable=editable engine="prosemirror"}}
+            <input name="data.description" type="text" value="{{data.description}}" placeholder="Description" />
         </div>
     </section>
 </form>

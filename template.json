@@ -30,7 +30,7 @@
 	},
 	"Item": {
 	  "types": ["Equipement", "Skill"],
-	  "htmlFields": ["description"],
+	  "htmlFields": [""],
 	  "Equipement": {
 		"name": "",
 		"description": "",

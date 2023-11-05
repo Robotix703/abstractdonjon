@@ -26,10 +26,6 @@ export class SkillSheet extends ItemSheet {
     EntitySheetHelper.getAttributeData(context.data);
     context.systemData = context.data.system;
     context.dtypes = ["String", "Number", "Boolean", "Formula", "Resource"];
-    context.descriptionHTML = await TextEditor.enrichHTML(context.systemData.description, {
-      secrets: this.document.isOwner,
-      async: true
-    });
     return context;
   }
 
