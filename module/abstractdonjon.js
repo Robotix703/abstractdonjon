@@ -41,8 +41,8 @@ Hooks.once("init", async function () {
   Actors.registerSheet("abstractdonjon", PlayerSheet, { types: ["Joueur"], label: "Joueur", makeDefault: true });
   Actors.registerSheet("abstractdonjon", NPCSheet, { types: ["PNJ"], label: "PNJ", makeDefault: true });
   Actors.registerSheet("abstractdonjon", ObstacleSheet, { types: ["Obstacle"], label: "Obstacle", makeDefault: true });
-  Actors.registerSheet("abstractdonjon", ChallengeSheet, { types: ["Challenge"], label: "Défi", makeDefault: true });
-  Actors.registerSheet("abstractdonjon", AdversarySheet, { types: ["Adversary"], label: "Adversaire", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", ChallengeSheet, { types: ["Defi"], label: "Défi", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", AdversarySheet, { types: ["Adversaire"], label: "Adversaire", makeDefault: true });
   Actors.registerSheet("abstractdonjon", BossSheet, { types: ["Boss"], label: "Boss", makeDefault: true });
 
   Items.unregisterSheet("core", ItemSheet);

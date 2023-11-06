@@ -1,6 +1,6 @@
 {
 	"Actor": {
-	  "types": ["Joueur", "PNJ", "Obstacle", "Défi", "Adversaire", "Boss"],
+	  "types": ["Joueur", "PNJ", "Obstacle", "Defi", "Adversaire", "Boss"],
 	  "htmlFields": ["biographie", "attacks"],
 	  "Joueur": {
 		"name": "",
@@ -27,7 +27,7 @@
 		"vulnerabilities": [],
 		"resistances": []
 	  },
-	  "Challenge": {
+	  "Defi": {
 		"name": "",
 		"diceAmount": 0,
 		"diceResults": [],
@@ -36,7 +36,7 @@
 		"resistances": [],
 		"attacks": ""
 	  },
-	  "Adversary": {
+	  "Adversaire": {
 		"name": "",
 		"diceAmount": 0,
 		"diceResults": [],
