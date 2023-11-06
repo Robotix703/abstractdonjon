@@ -1,0 +1,71 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <!--Portrait-->
+        <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
+
+        <div class="header-fields">
+            <!--name-->
+            <h1 class="charname">
+                <input name="name" type="text" value="{{data.name}}" placeholder="Nom" />
+            </h1>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="attributes">Caractéristiques</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab description" data-group="primary" data-tab="description">
+            <!--Biographie-->
+            <div>
+                <h1>Biographie</h1>
+                <div class="long-texte">
+                    {{editor biographyHTML target="system.biographie" button=true editable=editable engine="prosemirror"}}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            <!--Dice amount-->
+            <div style="max-width: 30%;">
+                <label for="system.diceAmount" class="resource-label">Nombre de dées</label>
+                <div class="flexrow flex-center flex-between">
+                    <input type="number" name="system.diceAmount" value="{{systemData.diceAmount}}" />
+                </div>
+            </div>
+
+            <!--Dice results-->
+            <div class="dice-pool" data-roll="force" style="display: flex;">
+                {{#each data.system.diceResults}}
+                <input class="dice" type="number" value="{{this}}" style="margin: 10px;" />
+                {{/each}}
+            </div>
+            <div class="col" style="display: flex;">
+                <a class="button roll-dice"
+                    style="max-width: 30px; height: 30px; margin: 10px; text-align: center;"
+                    data-roll="force"><i class="fas fa-dice-d20"></i></a>
+            </div>
+
+            <!--Resistance-->
+            <div style="margin-bottom: 20px;">
+                <h2>Résistances</h2>
+                <input name="system.resistances" type="text" value="{{systemData.resistances}}" placeholder="Résistances" />
+            </div>
+
+            <!--Vulnerabilities-->
+            <div>
+                <h2>Vulnérabilités</h2>
+                <input name="system.vulnerabilities" type="text" value="{{systemData.vulnerabilities}}" placeholder="Vulnérabilités" />
+            </div>
+        </div>
+    </section>
+</form>

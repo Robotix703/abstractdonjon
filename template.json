@@ -1,7 +1,7 @@
 {
 	"Actor": {
-	  "types": ["Joueur", "PNJ"],
-	  "htmlFields": ["biographie"],
+	  "types": ["Joueur", "PNJ", "Obstacle", "Défi", "Adversaire", "Boss"],
+	  "htmlFields": ["biographie", "attacks"],
 	  "Joueur": {
 		"name": "",
 		"level": 0,
@@ -13,19 +13,46 @@
 			"sagesse": [],
 			"intelligence": [],
 			"bonus": 0
-		},
-		"skills": {
-			
 		}
 	  },
 	  "PNJ": {
+		"name": "",
+		"biographie": ""
+	  },
+	  "Obstacle": {
+		"name": "",
+		"diceAmount": 0,
+		"diceResults": [],
+		"biographie": "",
+		"vulnerabilities": [],
+		"resistances": []
+	  },
+	  "Challenge": {
 		"name": "",
 		"diceAmount": 0,
 		"diceResults": [],
 		"biographie": "",
 		"vulnerabilities": [],
 		"resistances": [],
-		"attacks": []
+		"attacks": ""
+	  },
+	  "Adversary": {
+		"name": "",
+		"diceAmount": 0,
+		"diceResults": [],
+		"biographie": "",
+		"vulnerabilities": [],
+		"resistances": [],
+		"attacks": ""
+	  },
+	  "Boss": {
+		"name": "",
+		"diceAmount": 0,
+		"diceResults": [],
+		"biographie": "",
+		"vulnerabilities": [],
+		"resistances": [],
+		"attacks": ""
 	  }
 	},
 	"Item": {

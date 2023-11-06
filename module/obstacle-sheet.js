@@ -4,13 +4,13 @@ import { EntitySheetHelper } from "./helper.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class NPCSheet extends ActorSheet {
+export class ObstacleSheet extends ActorSheet {
 
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["abstractdonjon", "sheet", "actor", "PNJ"],
-      template: "systems/abstractdonjon/templates/npc-sheet.html",
+      classes: ["abstractdonjon", "sheet", "actor", "Obstacle"],
+      template: "systems/abstractdonjon/templates/obstacle-sheet.html",
       width: 700,
       height: 750,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],

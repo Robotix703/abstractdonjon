@@ -6,6 +6,10 @@ import { SkillSheet } from "./skill-sheet.js";
 
 import { PlayerSheet } from "./player-sheet.js";
 import { NPCSheet } from "./npc-sheet.js";
+import { ObstacleSheet } from "./obstacle-sheet.js";
+import { ChallengeSheet } from "./challenge-sheet.js";
+import { AdversarySheet } from "./adversary-sheet.js";
+import { BossSheet } from "./boss-sheet.js";
 
 import { createabstractdonjonMacro } from "./macro.js";
 
@@ -36,6 +40,10 @@ Hooks.once("init", async function () {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("abstractdonjon", PlayerSheet, { types: ["Joueur"], label: "Joueur", makeDefault: true });
   Actors.registerSheet("abstractdonjon", NPCSheet, { types: ["PNJ"], label: "PNJ", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", ObstacleSheet, { types: ["Obstacle"], label: "Obstacle", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", ChallengeSheet, { types: ["Challenge"], label: "Défi", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", AdversarySheet, { types: ["Adversary"], label: "Adversaire", makeDefault: true });
+  Actors.registerSheet("abstractdonjon", BossSheet, { types: ["Boss"], label: "Boss", makeDefault: true });
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("abstractdonjon", SimpleItemSheet, { types: ["Equipement"], label: "Equipement", makeDefault: true });
