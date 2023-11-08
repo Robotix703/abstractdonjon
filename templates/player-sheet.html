@@ -35,8 +35,8 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
         <a class="item" data-tab="attributes">Caractéristiques</a>
-        <a class="item" data-tab="skills">Compétences</a>
-        <a class="item" data-tab="items">Objets</a>
+        <a class="item" data-tab="skills">Traits</a>
+        <a class="item" data-tab="items">Trésors & Equipements</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -59,7 +59,7 @@
                 <!--Strength-->
                 <div style="width: 50%;">
                     <h1>Force</h1>
-                    <label>Trancher</label>
+                    <label>Trancher, Endurer, Briser, Sauter, Plier, Nager, Souffler, Courir, Broyer, Pousser, Tirer, Soulever, Porter, Encaisser, Arracher, Lancer</label>
                     <div class="dice-pool" data-roll="force" style="display: flex;">
                         {{#each data.system.characteristics.force}}
                         <input class="dice" type="number" value="{{this}}" style="margin: 10px;" />
@@ -81,7 +81,7 @@
                 <!--Dexterity-->
                 <div style="width: 50%;">
                     <h1>Dextérité</h1>
-                    <label>Esquiver</label>
+                    <label>Esquiver, Parer, Equilibrer, Basculer, Rouler, Viser, Danser, Attraper, Ramasser, Désarmer, Nouer, S'échapper, Dévier, Transpercer, Se retourner</label>
                     <div class="dice-pool" data-roll="dexterite" style="display: flex;">
                         {{#each data.system.characteristics.dexterite}}
                         <input class="dice" type="number" value="{{this}}" style="margin: 10px;" />
@@ -105,7 +105,7 @@
                 <!--Wisdom-->
                 <div style="width: 50%;">
                     <h1>Sagesse</h1>
-                    <label>Sentir</label>
+                    <label>Communier, Sentir, Motiver, Exhorter, Sympathiser, Persuader, Intimider, Pressentir, Ordonner, Commander, Provoquer, Embrouiller, Canaliser</label>
                     <div class="dice-pool" data-roll="sagesse" style="display: flex;">
                         {{#each data.system.characteristics.sagesse}}
                         <input class="dice" type="number" min="0" max="6" value="{{this}}" style="margin: 10px;" />
@@ -127,7 +127,7 @@
                 <!--Intelligence-->
                 <div style="width: 50%;">
                     <h1>Intelligence</h1>
-                    <label>Convaincre</label>
+                    <label>Convaincre, Se souvenir, Déduire, Raisonner, Déchiffrer, Inventer, Chercher, Débattre, Supposer, Etudier, Résoudre, Mystifier, Incanter, Méditer</label>
                     <div class="dice-pool" data-roll="intelligence" style="display: flex;">
                         {{#each data.system.characteristics.intelligence}}
                         <input class="dice" type="number" value="{{this}}" style="margin: 10px;" />

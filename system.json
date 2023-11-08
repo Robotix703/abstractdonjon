@@ -2,7 +2,7 @@
 	"id": "abstractdonjon",
 	"title": "Abstract Donjon System",
 	"description": "Abstract Donjon System",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"compatibility":{
 		"minimum": 10,
 		"verified": 11.313,
@@ -26,5 +26,5 @@
 	"primaryTokenAttribute": "stun",
 	"url": "https://github.com/Robotix703/abstractdonjon",
 	"manifest": "https://raw.githubusercontent.com/Robotix703/abstractdonjon/main/system.json",
-	"download": "https://github.com/Robotix703/abstractdonjon/releases/download/v1.1.1/abstractdonjon.zip"
+	"download": "https://github.com/Robotix703/abstractdonjon/releases/download/v1.1.2/abstractdonjon.zip"
 }
