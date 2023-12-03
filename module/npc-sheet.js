@@ -61,7 +61,8 @@ export class NPCSheet extends ActorSheet {
     return r.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor })
-    })
+    },
+    {rollMode: "gmroll"})
   }
 
   _onAttributeDiceChange(event) {

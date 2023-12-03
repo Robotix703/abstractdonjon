@@ -2,12 +2,13 @@
 	"id": "abstractdonjon",
 	"title": "Abstract Donjon System",
 	"description": "Abstract Donjon System",
-	"version": "1.1.2",
+	"version": "1.1.3",
 	"compatibility":{
 		"minimum": 10,
 		"verified": 11.313,
 		"maximum": 11
 	},
+	"background": "systems/abstractdonjon/img/abstractdonjon.jpg",
   	"esmodules": [
 		"module/abstractdonjon.js"
 	],
@@ -23,8 +24,8 @@
 	],
 	"gridDistance": 2,
 	"gridUnits": "m",
-	"primaryTokenAttribute": "stun",
+	"primaryTokenAttribute": "",
 	"url": "https://github.com/Robotix703/abstractdonjon",
 	"manifest": "https://raw.githubusercontent.com/Robotix703/abstractdonjon/main/system.json",
-	"download": "https://github.com/Robotix703/abstractdonjon/releases/download/v1.1.2/abstractdonjon.zip"
+	"download": "https://github.com/Robotix703/abstractdonjon/releases/download/v1.1.3/abstractdonjon.zip"
 }

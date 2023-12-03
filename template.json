@@ -8,10 +8,10 @@
 		"biographie": "",
 		"xp": 0,
 		"characteristics": {
-			"force": [],
-			"dexterite": [],
-			"sagesse": [],
-			"intelligence": [],
+			"force": [0],
+			"dexterite": [0],
+			"sagesse": [0],
+			"intelligence": [0],
 			"bonus": 0
 		}
 	  },
